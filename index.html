@@ -3,115 +3,415 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Marthi Jensen | BI Portfolio</title>
+
+    <title>Marthi Jensen | Business Intelligence Portfolio</title>
+
+    <meta
+      name="description"
+      content="Marthi Jensen's Business Intelligence and Data Visualization portfolio featuring Power BI dashboards, SQL projects, and business analytics work."
+    />
+
     <link rel="stylesheet" href="style.css" />
+
+    <!-- Font Awesome Icons -->
+    <script
+      src="https://kit.fontawesome.com/4b8b0b6f7a.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
+
   <body>
-    <header class="hero">
-      <nav>
-        <h2>Marthi Jensen</h2>
-        <div>
+    <!-- NAVIGATION -->
+    <header class="hero" id="home">
+      <nav class="navbar">
+        <div class="logo-area">
+          <div class="logo">MJ</div>
+          <span>Marthi Jensen</span>
+        </div>
+
+        <div class="nav-links">
+          <a href="#home" class="active">Home</a>
           <a href="#projects">Projects</a>
           <a href="#skills">Skills</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
+          <a href="resume.pdf" class="resume-button" target="_blank">
+            <i class="fa-solid fa-download"></i> Resume
+          </a>
         </div>
       </nav>
 
+      <!-- HERO SECTION -->
       <section class="hero-content">
-        <h1>Business Intelligence & Data Visualization Portfolio</h1>
-        <p>
-          I build dashboards and data tools that help people understand
-          information, identify trends, and make better decisions.
-        </p>
-        <div class="buttons">
-          <a href="#projects" class="btn">View Projects</a>
-          <a href="resume.pdf" class="btn secondary" target="_blank"
-            >View Resume</a
-          >
+        <div class="hero-text">
+          <p class="eyebrow">Business Intelligence & Data Visualization</p>
+
+          <h1>
+            Hi, I’m <br />
+            <span>Marthi Jensen.</span>
+          </h1>
+
+          <p class="hero-description">
+            I turn data into clear dashboards, insights, and business decisions.
+            My work connects analytics, accounting knowledge, and visual
+            storytelling.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#projects" class="primary-button">View Projects</a>
+            <a href="resume.pdf" class="secondary-button" target="_blank"
+              >Download Resume</a
+            >
+            <a
+              href="https://www.linkedin.com/in/marthijensen"
+              class="secondary-button"
+              target="_blank"
+            >
+              LinkedIn
+            </a>
+          </div>
+
+          <div class="hero-info">
+            <span><i class="fa-solid fa-location-dot"></i> Orem, Utah</span>
+            <span
+              ><i class="fa-solid fa-graduation-cap"></i> Utah Valley
+              University</span
+            >
+            <span
+              ><i class="fa-solid fa-envelope"></i> marthijensen@gmail.com</span
+            >
+          </div>
+        </div>
+
+        <!-- DASHBOARD MOCKUP -->
+        <div class="dashboard-preview">
+          <div class="dashboard-top">
+            <h3>Sales Overview</h3>
+
+            <div class="filters">
+              <div>
+                <label>Date Range</label>
+                <select>
+                  <option>All</option>
+                </select>
+              </div>
+
+              <div>
+                <label>Category</label>
+                <select>
+                  <option>All</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="metric-grid">
+            <div class="metric-card">
+              <p>Total Sales</p>
+              <h4>$1.62M</h4>
+              <span>▲ 12.6% vs last year</span>
+            </div>
+
+            <div class="metric-card">
+              <p>Total Profit</p>
+              <h4>$320K</h4>
+              <span>▲ 8.4% vs last year</span>
+            </div>
+
+            <div class="metric-card">
+              <p>Orders</p>
+              <h4>7,842</h4>
+              <span>▲ 9.2% vs last year</span>
+            </div>
+
+            <div class="metric-card">
+              <p>Avg. Order Value</p>
+              <h4>$206</h4>
+              <span>▲ 5.3% vs last year</span>
+            </div>
+          </div>
+
+          <div class="chart-row">
+            <div class="line-chart-card">
+              <h4>Sales Over Time</h4>
+              <div class="fake-line-chart">
+                <span style="height: 35%"></span>
+                <span style="height: 55%"></span>
+                <span style="height: 45%"></span>
+                <span style="height: 70%"></span>
+                <span style="height: 50%"></span>
+                <span style="height: 78%"></span>
+                <span style="height: 62%"></span>
+                <span style="height: 85%"></span>
+                <span style="height: 72%"></span>
+                <span style="height: 90%"></span>
+              </div>
+            </div>
+
+            <div class="donut-card">
+              <h4>Sales by Category</h4>
+              <div class="donut-chart"></div>
+              <ul>
+                <li>Technology <span>38%</span></li>
+                <li>Furniture <span>29%</span></li>
+                <li>Office Supplies <span>23%</span></li>
+                <li>Other <span>10%</span></li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
     </header>
 
+    <!-- MAIN CONTENT -->
     <main>
-      <section id="projects">
-        <h2>Projects</h2>
+      <!-- FEATURED PROJECTS -->
+      <section class="section" id="projects">
+        <p class="section-label">Featured Projects</p>
+        <h2>Projects that solve real business problems.</h2>
 
         <div class="project-grid">
-          <article class="card">
-            <h3>Campus Resource Utilization Dashboard</h3>
-            <p>
-              Dashboard concept designed to help university leaders understand
-              how student-facing resources are being used across campus.
-            </p>
-            <p><strong>Tools:</strong> Power BI, Excel, Business Analysis</p>
-            <a href="#">View Project</a>
+          <article class="project-card">
+            <div class="project-image campus"></div>
+            <div class="project-content">
+              <div class="project-icon green">
+                <i class="fa-solid fa-users"></i>
+              </div>
+              <h3>Campus Resource Utilization Dashboard</h3>
+              <p>
+                Dashboard concept designed to help university leaders understand
+                how student-facing resources are being used across campus.
+              </p>
+              <p class="tools">
+                <strong>Tools:</strong> Power BI, Excel, Business Analysis
+              </p>
+              <a href="#">View Case Study →</a>
+            </div>
           </article>
 
-          <article class="card">
-            <h3>Accounting & Tax Analysis Dashboard</h3>
-            <p>
-              A financial analytics project focused on organizing accounting
-              data, identifying tax-related patterns, and presenting results
-              clearly.
-            </p>
-            <p><strong>Tools:</strong> Excel, Power BI, Accounting Concepts</p>
-            <a href="#">View Project</a>
+          <article class="project-card">
+            <div class="project-image tax"></div>
+            <div class="project-content">
+              <div class="project-icon purple">
+                <i class="fa-solid fa-calculator"></i>
+              </div>
+              <h3>Accounting & Tax Analysis Dashboard</h3>
+              <p>
+                Financial analytics project focused on organizing accounting
+                data, identifying tax-related patterns, and presenting insights
+                clearly.
+              </p>
+              <p class="tools">
+                <strong>Tools:</strong> Excel, Power BI, Accounting
+              </p>
+              <a href="#">View Case Study →</a>
+            </div>
           </article>
 
-          <article class="card">
-            <h3>Sales & Inventory Performance Dashboard</h3>
-            <p>
-              Dashboard analyzing sales trends, inventory movement, and
-              operational performance using business data.
-            </p>
-            <p><strong>Tools:</strong> SQL, Power BI, Excel</p>
-            <a href="#">View Project</a>
+          <article class="project-card">
+            <div class="project-image inventory"></div>
+            <div class="project-content">
+              <div class="project-icon blue">
+                <i class="fa-solid fa-box"></i>
+              </div>
+              <h3>Sales & Inventory Performance Dashboard</h3>
+              <p>
+                Dashboard analyzing sales trends, inventory movement, pricing,
+                and operational performance to support decisions.
+              </p>
+              <p class="tools"><strong>Tools:</strong> SQL, Power BI, Excel</p>
+              <a href="#">View Case Study →</a>
+            </div>
           </article>
         </div>
       </section>
 
-      <section id="skills">
-        <h2>Skills</h2>
-        <div class="skills">
-          <span>Power BI</span>
-          <span>SQL</span>
-          <span>Excel</span>
-          <span>Data Visualization</span>
-          <span>Dashboard Design</span>
-          <span>Business Intelligence</span>
-          <span>Accounting</span>
-          <span>Financial Analysis</span>
+      <!-- SKILLS -->
+      <section class="section" id="skills">
+        <p class="section-label">Skills & Tools</p>
+        <h2>Technical skills with business context.</h2>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <i class="fa-solid fa-chart-column"></i>
+            <h3>Data & BI</h3>
+            <ul>
+              <li>Power BI</li>
+              <li>SQL</li>
+              <li>Excel</li>
+              <li>Data Visualization</li>
+              <li>Dashboard Design</li>
+            </ul>
+          </div>
+
+          <div class="skill-card">
+            <i class="fa-solid fa-briefcase"></i>
+            <h3>Business & Accounting</h3>
+            <ul>
+              <li>Financial Analysis</li>
+              <li>Accounting Concepts</li>
+              <li>Tax Concepts</li>
+              <li>Process Improvement</li>
+              <li>Business Analysis</li>
+            </ul>
+          </div>
+
+          <div class="skill-card">
+            <i class="fa-solid fa-database"></i>
+            <h3>Tools & Technologies</h3>
+            <ul>
+              <li>SQL Queries</li>
+              <li>Joins & CTEs</li>
+              <li>Power Query</li>
+              <li>DAX Basics</li>
+              <li>Data Modeling</li>
+            </ul>
+          </div>
+
+          <div class="skill-card">
+            <i class="fa-solid fa-people-group"></i>
+            <h3>Soft Skills</h3>
+            <ul>
+              <li>Communication</li>
+              <li>User Support</li>
+              <li>Training & Documentation</li>
+              <li>Problem Solving</li>
+              <li>Team Collaboration</li>
+            </ul>
+          </div>
         </div>
       </section>
 
-      <section id="about">
-        <h2>About Me</h2>
-        <p>
-          I am an Information Systems & Technology student at Utah Valley
-          University with an emphasis in Business Intelligence and a minor in
-          Accounting. I enjoy connecting data, business needs, and clear visual
-          storytelling to help people make informed decisions.
-        </p>
+      <!-- HOW I WORK -->
+      <section class="section process-section">
+        <p class="section-label">How I Work</p>
+        <h2>My process for turning data into meaningful insights.</h2>
+
+        <div class="process-grid">
+          <div class="process-step">
+            <div class="step-number">1</div>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <h3>Understand</h3>
+            <p>I learn the business problem and define the key questions.</p>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">2</div>
+            <i class="fa-solid fa-database"></i>
+            <h3>Prepare</h3>
+            <p>I clean, organize, and prepare data for analysis.</p>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">3</div>
+            <i class="fa-solid fa-chart-simple"></i>
+            <h3>Analyze</h3>
+            <p>I explore the data to find patterns, trends, and insights.</p>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">4</div>
+            <i class="fa-solid fa-desktop"></i>
+            <h3>Visualize</h3>
+            <p>
+              I create clear dashboards that make data easier to understand.
+            </p>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">5</div>
+            <i class="fa-regular fa-lightbulb"></i>
+            <h3>Deliver</h3>
+            <p>I communicate insights that support better decision-making.</p>
+          </div>
+        </div>
       </section>
 
-      <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: your-email@example.com</p>
-        <p>
-          <a href="https://www.linkedin.com/in/your-linkedin" target="_blank"
-            >LinkedIn</a
-          >
-          |
-          <a href="https://github.com/your-github-username" target="_blank"
-            >GitHub</a
-          >
-        </p>
+      <!-- ABOUT -->
+      <section class="about-section" id="about">
+        <div class="about-image">
+          <img src="Assets/photo.jpg" alt="Marthi Jensen profile photo" />
+        </div>
+
+        <div class="about-text">
+          <p class="section-label">About Me</p>
+          <h2>Data, business, and people.</h2>
+
+          <p>
+            I’m an Information Systems & Technology student at Utah Valley
+            University with an emphasis in Business Intelligence and a minor in
+            Accounting. I enjoy using data to make complicated information
+            easier to understand and help people make better decisions.
+          </p>
+
+          <p>
+            My background connects technical skills, business thinking, and
+            communication. I’m especially interested in dashboards, financial
+            data, process improvement, and analytics that create real impact.
+          </p>
+        </div>
+
+        <div class="about-details">
+          <div>
+            <i class="fa-solid fa-graduation-cap"></i>
+            <p>
+              <strong>Utah Valley University</strong><br />Information Systems &
+              Technology
+            </p>
+          </div>
+
+          <div>
+            <i class="fa-solid fa-location-dot"></i>
+            <p>
+              <strong>Orem, Utah</strong><br />Business Intelligence Emphasis
+            </p>
+          </div>
+
+          <div>
+            <i class="fa-solid fa-heart"></i>
+            <p>
+              <strong>Outside of work</strong><br />Volleyball, golf, learning,
+              and family
+            </p>
+          </div>
+        </div>
       </section>
     </main>
 
-    <footer>
-      <p>© 2026 Marthi Jensen</p>
+    <!-- CONTACT -->
+    <footer id="contact">
+      <div class="footer-content">
+        <div>
+          <p class="section-label">Let’s Connect</p>
+          <h2>I’m open to new opportunities and collaborations.</h2>
+          <a href="mailto:marthijensen@gmail.com" class="primary-button"
+            >Get in Touch</a
+          >
+        </div>
+
+        <div class="footer-links">
+          <a href="mailto:your-email@example.com">
+            <i class="fa-solid fa-envelope"></i> your-email@example.com
+          </a>
+
+          <a href="https://www.linkedin.com/in/marthijensen/" target="_blank">
+            <i class="fa-brands fa-linkedin"></i> linkedin.com/in/YOUR-LINKEDIN
+          </a>
+
+          <a href="https://github.com/marthijensen" target="_blank">
+            <i class="fa-brands fa-github"></i> github.com/marthijensen
+          </a>
+        </div>
+
+        <div class="quote-box">
+          <p>
+            “Data is more than numbers. It’s about understanding people, solving
+            problems, and creating impact.”
+          </p>
+        </div>
+      </div>
+
+      <p class="copyright">© 2026 Marthi Jensen. All rights reserved.</p>
     </footer>
   </body>
 </html>
