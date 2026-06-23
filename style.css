@@ -1546,3 +1546,52 @@ body.modal-open {
     font-size: 0.75rem;
   }
 }
+/* =========================================
+FINANCIAL ANALYSIS PROJECT CARD
+========================================= */
+
+.project-image.dashboard-thumbnail {
+  overflow: hidden;
+  background: #eef2ff;
+}
+
+.project-image.dashboard-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 28%;
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+}
+
+.project-card .dashboard-thumbnail img {
+  transform: scale(1.07);
+}
+
+.project-image.dashboard-thumbnail::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 0.03) 25%,
+    rgba(15, 23, 42, 0.55) 100%
+  );
+  pointer-events: none;
+}
+
+.project-image.dashboard-thumbnail .project-image-label {
+  z-index: 2;
+}
+
+.featured-project-link {
+  display: inline-block;
+  margin-top: 16px;
+  color: var(--green);
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.featured-project-link {
+  color: var(--white);
+}
