@@ -1372,185 +1372,177 @@ footer {
     grid-template-columns: 1fr;
   }
 }
-/* ================================
-   ACCOUNTING & TAX CASE STUDY
-   ================================ */
+/* =========================================
+FINANCIAL ANALYSIS DASHBOARD GALLERY
+========================================= */
 
-.project-hero h1 span {
-  color: var(--green);
+.dashboard-page-card.full-width-dashboard,
+.dashboard-page-card.full-width-dashboard.reverse {
+  display: block;
 }
 
-.project-summary-card h3 {
-  color: var(--white);
-  font-size: 1.45rem;
-  margin-bottom: 8px;
+.full-width-dashboard .dashboard-page-copy {
+  max-width: 900px;
+  margin-bottom: 28px;
 }
 
-.project-summary-card .section-label {
-  color: var(--green);
-}
-
-.dashboard-page-card {
-  display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: 28px;
-  align-items: center;
-  margin-top: 32px;
-  padding: 28px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--light-bg);
-}
-
-.dashboard-page-card.reverse {
-  grid-template-columns: 1.05fr 0.95fr;
-}
-
-.dashboard-page-card.reverse .dashboard-page-copy {
-  order: 2;
-}
-
-.dashboard-page-card.reverse .dashboard-screenshot {
-  order: 1;
-}
-
-.dashboard-page-copy span {
-  display: inline-block;
-  margin-bottom: 10px;
-  color: var(--purple);
-  font-size: 0.76rem;
-  font-weight: 900;
-  letter-spacing: 1.5px;
-}
-
-.dashboard-page-copy h3 {
-  margin-bottom: 12px;
-  font-size: 1.55rem;
-}
-
-.dashboard-page-copy p {
-  margin-bottom: 16px;
-}
-
-.dashboard-page-copy ul {
-  list-style: none;
-  display: grid;
-  gap: 10px;
-  color: var(--text-gray);
-}
-
-.dashboard-page-copy li {
+.dashboard-full-image-link {
   position: relative;
-  padding-left: 25px;
-}
-
-.dashboard-page-copy li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: var(--green-dark);
-  font-weight: 900;
-}
-
-.dashboard-screenshot {
-  min-height: 280px;
+  display: block;
   overflow: hidden;
   border: 1px solid var(--border);
   border-radius: 14px;
   background: var(--white);
   box-shadow: var(--shadow);
+  cursor: zoom-in;
 }
 
-.dashboard-screenshot img {
+.dashboard-full-image-link img {
+  display: block;
   width: 100%;
-  height: 100%;
-  min-height: 280px;
-  object-fit: cover;
-  object-position: top;
+  height: auto;
+  border-radius: 14px;
+  transition: transform 0.25s ease;
 }
 
-.placeholder-screenshot {
+.dashboard-full-image-link img {
+  transform: scale(1.01);
+}
+
+.image-expand-label {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.9);
+  color: var(--white);
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.image-expand-label i {
+  color: var(--green);
+}
+
+/* Full-screen dashboard image viewer */
+
+.image-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  background: rgba(2, 6, 23, 0.92);
+}
+
+.image-modal.is-open {
+  display: flex;
+}
+
+.image-modal-content {
+  width: min(1600px, 96vw);
+  max-height: 92vh;
+  position: relative;
+}
+
+.image-modal img {
+  display: block;
+  max-width: 100%;
+  max-height: 92vh;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.45);
+}
+
+.image-modal-close,
+.image-modal-nav {
+  position: absolute;
+  z-index: 2;
+  border: 0;
+  color: var(--white);
+  background: rgba(15, 23, 42, 0.9);
+  cursor: pointer;
   display: grid;
   place-items: center;
-  background:
-    radial-gradient(
-      circle at 70% 20%,
-      rgba(124, 58, 237, 0.16),
-      transparent 28%
-    ),
-    linear-gradient(135deg, #eff6ff, #f5f3ff);
-  padding: 28px;
-  text-align: center;
+  transition: 0.2s ease;
 }
 
-.placeholder-screenshot i {
-  color: var(--purple);
-  font-size: 2.3rem;
-  margin-bottom: 14px;
-}
-
-.placeholder-screenshot h3 {
-  margin-bottom: 8px;
-}
-
-.placeholder-screenshot p {
-  color: var(--text-gray);
-}
-
-.model-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-  margin-top: 22px;
-}
-
-.model-table {
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  background: var(--light-bg);
-  padding: 22px;
-}
-
-.model-table i {
-  color: var(--purple);
-  font-size: 1.3rem;
-  margin-bottom: 12px;
-}
-
-.model-table h3 {
-  margin-bottom: 8px;
+.image-modal-close {
+  top: -14px;
+  right: -14px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
   font-size: 1.1rem;
 }
 
-.model-table p {
-  margin-bottom: 0;
-  font-size: 0.92rem;
+.image-modal-nav {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 58px;
+  border-radius: 10px;
+  font-size: 1.15rem;
 }
 
-.project-disclaimer {
-  border-left: 4px solid var(--purple);
-  border-radius: 0 12px 12px 0;
-  background: #f5f3ff;
-  padding: 18px 20px;
+.image-modal-prev {
+  left: -64px;
 }
 
-.project-disclaimer p {
-  margin: 0;
-  color: #4c1d95;
+.image-modal-next {
+  right: -64px;
 }
 
-@media (max-width: 1000px) {
-  .dashboard-page-card,
-  .dashboard-page-card.reverse {
-    grid-template-columns: 1fr;
+.image-modal-close,
+.image-modal-nav {
+  background: var(--green-dark);
+}
+
+.modal-caption {
+  margin-top: 14px;
+  color: var(--white);
+  text-align: center;
+  font-weight: 700;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+@media (max-width: 850px) {
+  .image-modal {
+    padding: 18px;
   }
 
-  .dashboard-page-card.reverse .dashboard-page-copy,
-  .dashboard-page-card.reverse .dashboard-screenshot {
-    order: initial;
+  .image-modal-content {
+    width: 100%;
   }
 
-  .model-grid {
-    grid-template-columns: 1fr;
+  .image-modal-prev {
+    left: 8px;
+  }
+
+  .image-modal-next {
+    right: 8px;
+  }
+
+  .image-modal-close {
+    top: 8px;
+    right: 8px;
+  }
+
+  .image-expand-label {
+    right: 10px;
+    bottom: 10px;
+    padding: 8px 10px;
+    font-size: 0.75rem;
   }
 }
