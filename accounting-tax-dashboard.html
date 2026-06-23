@@ -17,6 +17,595 @@
       src="https://kit.fontawesome.com/4b8b0b6f7a.js"
       crossorigin="anonymous"
     ></script>
+
+    <style>
+      /* ==================================================
+         FINANCIAL ANALYSIS CASE STUDY — PAGE-ONLY STYLES
+         These styles only affect this case study page.
+      ================================================== */
+
+      .financial-case-study {
+        background: var(--light-bg);
+        padding: 0 0 84px;
+      }
+
+      .financial-case-study .case-study-wide {
+        width: min(1180px, 88%);
+        margin: 0 auto;
+      }
+
+      .case-study-overview {
+        padding: 78px 0 36px;
+      }
+
+      .case-study-overview-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 24px;
+        align-items: stretch;
+      }
+
+      .overview-story,
+      .overview-value {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 32px;
+        box-shadow: var(--shadow);
+      }
+
+      .overview-story h2,
+      .overview-value h2,
+      .report-tour-heading h2,
+      .process-card h2 {
+        margin: 0 0 14px;
+        font-size: clamp(1.85rem, 3vw, 2.5rem);
+        line-height: 1.16;
+      }
+
+      .overview-story p,
+      .overview-value > p,
+      .report-page-copy > p,
+      .process-card > p {
+        color: var(--text-gray);
+        margin: 0;
+        line-height: 1.75;
+      }
+
+      .overview-story p + p {
+        margin-top: 14px;
+      }
+
+      .overview-value {
+        background:
+          radial-gradient(
+            circle at 88% 10%,
+            rgba(124, 58, 237, 0.12),
+            transparent 33%
+          ),
+          var(--white);
+      }
+
+      .overview-value .section-label {
+        color: var(--purple);
+      }
+
+      .overview-value > p {
+        margin-bottom: 22px;
+      }
+
+      .project-stat-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .project-stat {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: var(--light-bg);
+        padding: 16px;
+      }
+
+      .project-stat i {
+        display: inline-grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        margin-bottom: 10px;
+        border-radius: 9px;
+        background: #ede9fe;
+        color: var(--purple);
+      }
+
+      .project-stat:nth-child(2) i {
+        background: #dcfce7;
+        color: var(--green-dark);
+      }
+
+      .project-stat:nth-child(3) i {
+        background: #dbeafe;
+        color: var(--blue);
+      }
+
+      .project-stat:nth-child(4) i {
+        background: #fef3c7;
+        color: var(--gold);
+      }
+
+      .project-stat strong {
+        display: block;
+        color: var(--text-dark);
+        font-size: 1.03rem;
+      }
+
+      .project-stat span {
+        display: block;
+        color: var(--text-gray);
+        font-size: 0.82rem;
+        margin-top: 3px;
+      }
+
+      .report-tour {
+        padding: 36px 0 18px;
+      }
+
+      .report-tour-heading {
+        max-width: 780px;
+        margin-bottom: 30px;
+      }
+
+      .report-tour-heading .section-label {
+        color: var(--purple);
+      }
+
+      .report-tour-heading > p:last-of-type {
+        color: var(--text-gray);
+        line-height: 1.7;
+        max-width: 720px;
+      }
+
+      .report-page-navigation {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 22px;
+      }
+
+      .report-page-navigation a {
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: var(--white);
+        color: var(--text-dark);
+        padding: 10px 15px;
+        font-size: 0.86rem;
+        font-weight: 800;
+        transition: 0.22s ease;
+      }
+
+      .report-page-navigation a:hover {
+        border-color: var(--purple);
+        color: var(--purple);
+        transform: translateY(-1px);
+      }
+
+      .report-page {
+        scroll-margin-top: 30px;
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 30px;
+        margin: 28px 0 38px;
+        box-shadow: var(--shadow);
+      }
+
+      .report-page-header {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 28px;
+        align-items: center;
+        margin-bottom: 26px;
+      }
+
+      .report-page-intro {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+      }
+
+      .report-page-number {
+        flex: 0 0 auto;
+        display: grid;
+        place-items: center;
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        background: #ede9fe;
+        color: var(--purple);
+        font-size: 0.88rem;
+        font-weight: 900;
+        letter-spacing: 0.04em;
+      }
+
+      .report-page:nth-of-type(3) .report-page-number {
+        background: #dcfce7;
+        color: var(--green-dark);
+      }
+
+      .report-page:nth-of-type(4) .report-page-number {
+        background: #dbeafe;
+        color: var(--blue);
+      }
+
+      .report-eyebrow {
+        color: var(--purple);
+        font-size: 0.78rem;
+        font-weight: 900;
+        letter-spacing: 1.5px;
+        margin: 1px 0 5px;
+        text-transform: uppercase;
+      }
+
+      .report-page:nth-of-type(3) .report-eyebrow {
+        color: var(--green-dark);
+      }
+
+      .report-page:nth-of-type(4) .report-eyebrow {
+        color: var(--blue);
+      }
+
+      .report-page-copy h3 {
+        margin: 0 0 8px;
+        color: var(--text-dark);
+        font-size: 1.5rem;
+        line-height: 1.25;
+      }
+
+      .report-page-copy > p {
+        max-width: 710px;
+      }
+
+      .report-focus {
+        border-left: 3px solid var(--purple);
+        padding: 8px 0 8px 18px;
+      }
+
+      .report-page:nth-of-type(3) .report-focus {
+        border-color: var(--green-dark);
+      }
+
+      .report-page:nth-of-type(4) .report-focus {
+        border-color: var(--blue);
+      }
+
+      .report-focus-label {
+        display: block;
+        color: var(--text-dark);
+        font-size: 0.76rem;
+        font-weight: 900;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+      }
+
+      .focus-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .focus-tags span {
+        border-radius: 999px;
+        background: var(--light-bg);
+        color: var(--text-gray);
+        padding: 7px 10px;
+        font-size: 0.78rem;
+        font-weight: 700;
+      }
+
+      .dashboard-full-image-link {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: #ffffff;
+        cursor: zoom-in;
+      }
+
+      .dashboard-full-image-link img {
+        display: block;
+        width: 100%;
+        height: auto;
+        transition: transform 0.25s ease;
+      }
+
+      .dashboard-full-image-link:hover img {
+        transform: scale(1.01);
+      }
+
+      .image-expand-label {
+        position: absolute;
+        right: 16px;
+        bottom: 16px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 13px;
+        border-radius: 9px;
+        background: rgba(15, 23, 42, 0.92);
+        color: var(--white);
+        font-size: 0.82rem;
+        font-weight: 800;
+      }
+
+      .image-expand-label i {
+        color: var(--green);
+      }
+
+      .process-section-clean {
+        padding: 36px 0 0;
+      }
+
+      .process-card {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 34px;
+        box-shadow: var(--shadow);
+      }
+
+      .process-card .section-label {
+        color: var(--blue);
+      }
+
+      .process-list {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 14px;
+        margin: 26px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .process-list li {
+        position: relative;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--light-bg);
+        padding: 18px 15px;
+      }
+
+      .process-list strong {
+        display: block;
+        color: var(--text-dark);
+        font-size: 0.92rem;
+        margin-bottom: 7px;
+      }
+
+      .process-list span {
+        color: var(--text-gray);
+        display: block;
+        font-size: 0.82rem;
+        line-height: 1.5;
+      }
+
+      .process-list .process-number {
+        display: inline-grid;
+        place-items: center;
+        width: 28px;
+        height: 28px;
+        margin-bottom: 12px;
+        border-radius: 50%;
+        background: var(--dark-navy);
+        color: var(--green);
+        font-size: 0.76rem;
+        font-weight: 900;
+      }
+
+      .privacy-note {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        margin-top: 22px;
+        border: 1px solid #ddd6fe;
+        border-radius: 14px;
+        background: #f5f3ff;
+        padding: 18px 20px;
+      }
+
+      .privacy-note i {
+        color: var(--purple);
+        font-size: 1.25rem;
+        margin-top: 2px;
+      }
+
+      .privacy-note p {
+        color: #4c1d95;
+        line-height: 1.65;
+        margin: 0;
+      }
+
+      .image-modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+        padding: 28px;
+        background: rgba(2, 6, 23, 0.92);
+      }
+
+      .image-modal.is-open {
+        display: flex;
+      }
+
+      .image-modal-content {
+        position: relative;
+        width: min(1600px, 96vw);
+        max-height: 92vh;
+      }
+
+      .image-modal img {
+        display: block;
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 92vh;
+        margin: 0 auto;
+        border-radius: 10px;
+        box-shadow: 0 28px 70px rgba(0, 0, 0, 0.45);
+      }
+
+      .image-modal-close,
+      .image-modal-nav {
+        position: absolute;
+        z-index: 2;
+        display: grid;
+        place-items: center;
+        border: 0;
+        background: rgba(15, 23, 42, 0.92);
+        color: var(--white);
+        cursor: pointer;
+        transition: 0.2s ease;
+      }
+
+      .image-modal-close {
+        top: -14px;
+        right: -14px;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        font-size: 1.1rem;
+      }
+
+      .image-modal-nav {
+        top: 50%;
+        width: 48px;
+        height: 58px;
+        border-radius: 10px;
+        font-size: 1.1rem;
+        transform: translateY(-50%);
+      }
+
+      .image-modal-prev {
+        left: -64px;
+      }
+
+      .image-modal-next {
+        right: -64px;
+      }
+
+      .image-modal-close:hover,
+      .image-modal-nav:hover {
+        background: var(--green-dark);
+      }
+
+      .modal-caption {
+        margin: 14px 0 0;
+        color: var(--white);
+        font-weight: 800;
+        text-align: center;
+      }
+
+      body.modal-open {
+        overflow: hidden;
+      }
+
+      @media (max-width: 1000px) {
+        .case-study-overview-grid,
+        .report-page-header {
+          grid-template-columns: 1fr;
+        }
+
+        .process-list {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .report-focus {
+          border-left: 0;
+          border-top: 3px solid var(--purple);
+          padding: 16px 0 0;
+        }
+
+        .report-page:nth-of-type(3) .report-focus {
+          border-color: var(--green-dark);
+        }
+
+        .report-page:nth-of-type(4) .report-focus {
+          border-color: var(--blue);
+        }
+      }
+
+      @media (max-width: 760px) {
+        .financial-case-study .case-study-wide {
+          width: min(92%, 1180px);
+        }
+
+        .case-study-overview {
+          padding: 55px 0 25px;
+        }
+
+        .overview-story,
+        .overview-value,
+        .report-page,
+        .process-card {
+          padding: 24px;
+        }
+
+        .project-stat-grid,
+        .process-list {
+          grid-template-columns: 1fr;
+        }
+
+        .report-page-header {
+          gap: 20px;
+        }
+
+        .report-page-intro {
+          gap: 12px;
+        }
+
+        .report-page-number {
+          width: 42px;
+          height: 42px;
+          border-radius: 12px;
+        }
+
+        .report-page-copy h3 {
+          font-size: 1.28rem;
+        }
+
+        .image-modal {
+          padding: 16px;
+        }
+
+        .image-modal-content {
+          width: 100%;
+        }
+
+        .image-modal-prev {
+          left: 6px;
+        }
+
+        .image-modal-next {
+          right: 6px;
+        }
+
+        .image-modal-close {
+          top: 6px;
+          right: 6px;
+        }
+
+        .image-expand-label {
+          right: 10px;
+          bottom: 10px;
+          font-size: 0.72rem;
+          padding: 8px 10px;
+        }
+      }
+    </style>
   </head>
 
   <body>
@@ -55,14 +644,14 @@
           </h1>
 
           <p class="project-subtitle">
-            An interactive Power BI report that combines income, deductions,
+            A three-page Power BI report that brings income, deductions,
             credits, estimated tax, refunds, and amount-due outcomes into one
             clear financial reporting experience.
           </p>
 
           <div class="hero-buttons">
             <a href="#dashboard-pages" class="primary-button">
-              View Dashboard Pages
+              Explore Dashboard Pages
             </a>
 
             <a href="index.html#projects" class="secondary-button">
@@ -99,292 +688,306 @@
           <h3>Making financial data easier to understand.</h3>
 
           <p>
-            This dashboard transforms financial and tax-related data into an
-            interactive reporting experience for executive summaries,
-            tax-profile review, and comparative analysis.
+            I designed a reporting experience that supports an executive
+            financial summary, filtered tax-profile review, and comparative
+            insights across filing statuses, states, and income ranges.
           </p>
 
           <p>
-            The report includes an Executive Overview, Tax Profile Detail, and
-            Tax Insights page to support both high-level and detailed review.
+            Select any dashboard preview below to open it in a large,
+            full-screen viewer.
           </p>
         </aside>
       </section>
     </header>
 
-    <main>
-      <section class="case-study-section">
-        <div class="case-study-layout">
-          <aside class="case-study-sidebar">
-            <a href="index.html#projects" class="back-link">
-              ← Back to Projects
-            </a>
+    <main class="financial-case-study">
+      <section class="case-study-overview">
+        <div class="case-study-wide case-study-overview-grid">
+          <article class="overview-story">
+            <p class="section-label">The Challenge</p>
+            <h2>
+              Financial information is easier to use when it has one clear
+              story.
+            </h2>
 
-            <div class="sidebar-card">
-              <h3>Project Goal</h3>
-              <p>
-                Create a clear, interactive view of financial and tax-related
-                information that supports faster analysis and better decisions.
-              </p>
+            <p>
+              Income, deductions, credits, tax liability, and payment outcomes
+              can be difficult to compare when they live in separate tables or
+              spreadsheets.
+            </p>
+
+            <p>
+              This project organizes those connected records into a report that
+              supports both quick executive review and deeper tax-profile
+              exploration.
+            </p>
+          </article>
+
+          <article class="overview-value">
+            <p class="section-label">What I Built</p>
+            <h2>A focused three-page reporting experience.</h2>
+
+            <p>
+              Each page has a distinct purpose, so users can move from a broad
+              financial picture to detailed and comparative analysis without
+              losing context.
+            </p>
+
+            <div class="project-stat-grid">
+              <div class="project-stat">
+                <i class="fa-solid fa-layer-group"></i>
+                <strong>3 pages</strong>
+                <span>Executive, detail, and insight views</span>
+              </div>
+
+              <div class="project-stat">
+                <i class="fa-solid fa-chart-column"></i>
+                <strong>7 KPIs</strong>
+                <span>Income, deductions, tax, refunds, and more</span>
+              </div>
+
+              <div class="project-stat">
+                <i class="fa-solid fa-filter"></i>
+                <strong>5 filters</strong>
+                <span>Tax-profile exploration controls</span>
+              </div>
+
+              <div class="project-stat">
+                <i class="fa-solid fa-table-list"></i>
+                <strong>Client detail</strong>
+                <span>Individual records with financial context</span>
+              </div>
             </div>
+          </article>
+        </div>
+      </section>
 
-            <div class="sidebar-card">
-              <h3>Skills Demonstrated</h3>
-              <p>Power BI Dashboard Design</p>
-              <p>Data Modeling</p>
-              <p>Financial Analysis</p>
-              <p>Tax Concepts</p>
-              <p>Power Query</p>
-              <p>DAX Measures</p>
-            </div>
+      <section class="report-tour case-study-wide" id="dashboard-pages">
+        <div class="report-tour-heading">
+          <p class="section-label">Report Tour</p>
+          <h2>Three pages, each designed for a different decision.</h2>
+          <p>
+            The report moves from a high-level financial summary to filterable
+            tax-profile detail and comparative tax insights. Click any preview
+            to view the dashboard page in full size.
+          </p>
 
-            <div class="sidebar-card">
-              <h3>Data Privacy</h3>
-              <p>
-                This portfolio project uses simulated or anonymized data. No
-                confidential client information is displayed.
-              </p>
-            </div>
-          </aside>
+          <nav
+            class="report-page-navigation"
+            aria-label="Dashboard page navigation"
+          >
+            <a href="#executive-overview">01 · Executive Overview</a>
+            <a href="#tax-profile-detail">02 · Tax Profile Detail</a>
+            <a href="#tax-insights">03 · Tax Insights</a>
+          </nav>
+        </div>
 
-          <div class="case-study-content">
-            <section>
-              <p class="section-label">The Challenge</p>
-              <h2>
-                Financial data is more useful when it tells a clear story.
-              </h2>
+        <article class="report-page" id="executive-overview">
+          <div class="report-page-header">
+            <div class="report-page-intro">
+              <span class="report-page-number">01</span>
 
-              <p>
-                Financial and tax information can be difficult to interpret when
-                it is spread across separate tables and spreadsheets. Users may
-                need to compare income, deductions, credits, estimated taxes,
-                refunds, and tax outcomes without a single unified reporting
-                view.
-              </p>
-
-              <p>
-                This project focused on organizing related financial records
-                into a Power BI dashboard that makes key insights easier to
-                review, filter, and communicate.
-              </p>
-            </section>
-
-            <section>
-              <p class="section-label">The Solution</p>
-              <h2>A Power BI reporting experience.</h2>
-
-              <p>
-                I designed the report to provide three levels of financial
-                analysis: a high-level executive view, filtered tax-profile
-                detail, and comparative tax insights across filing statuses,
-                states, income ranges, and deduction categories.
-              </p>
-
-              <div class="insight-grid">
-                <div>
-                  <h3>Executive Overview</h3>
-                  <p>
-                    Summarizes total income, deductions, credits, estimated tax,
-                    average tax rate, refunds, and amount due.
-                  </p>
-                </div>
-
-                <div>
-                  <h3>Tax Profile Detail</h3>
-                  <p>
-                    Supports interactive filtering and detailed review of
-                    financial measures at the client level.
-                  </p>
-                </div>
-
-                <div>
-                  <h3>Tax Insights</h3>
-                  <p>
-                    Highlights patterns in taxable income, credits, deductions,
-                    refunds, and tax rates across multiple categories.
-                  </p>
-                </div>
-
-                <div>
-                  <h3>Clear Reporting Design</h3>
-                  <p>
-                    Uses KPI cards, charts, filters, and tables to make
-                    financial information easier to understand.
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            <section id="dashboard-pages">
-              <div class="dashboard-page-card full-width-dashboard">
-                <div class="dashboard-page-copy">
-                  <span>EXECUTIVE OVERVIEW</span>
-
-                  <h3>Financial performance at a glance.</h3>
-
-                  <p>
-                    The Executive Overview brings together the most important
-                    financial and tax metrics so users can quickly understand
-                    the overall picture.
-                  </p>
-
-                  <ul>
-                    <li>
-                      Total income, deductions, credits, and estimated tax
-                    </li>
-                    <li>Average tax rate, refund amount, and amount due</li>
-                    <li>Deduction components and share of total deductions</li>
-                    <li>Income and taxable income by filing status</li>
-                    <li>Refunds compared with amount due</li>
-                  </ul>
-                </div>
-
-                <a
-                  class="dashboard-full-image-link"
-                  href="Assets/financial-analysis-executive-overview.png"
-                  data-dashboard-image="0"
-                  data-caption="Executive Overview"
-                  aria-label="Open Executive Overview in full size"
-                >
-                  <img
-                    src="Assets/financial-analysis-executive-overview.png"
-                    alt="Executive Overview page of the Financial Analysis Dashboard"
-                  />
-                  <span class="image-expand-label">
-                    <i class="fa-solid fa-expand"></i> Click to view full size
-                  </span>
-                </a>
-              </div>
-
-              <div class="dashboard-page-card full-width-dashboard">
-                <div class="dashboard-page-copy">
-                  <span>TAX PROFILE DETAIL</span>
-
-                  <h3>Filter, compare, and review tax outcomes.</h3>
-
-                  <p>
-                    The Tax Profile Detail page allows users to explore
-                    financial information through multiple filters and review
-                    individual client-level tax outcomes.
-                  </p>
-
-                  <ul>
-                    <li>
-                      Filters for filing status, state, dependents, and income
-                      range
-                    </li>
-                    <li>Income, deductions, and credits breakdowns</li>
-                    <li>Refunds versus amount due by filing status</li>
-                    <li>Detailed client-level financial reporting table</li>
-                    <li>Effective tax rate and withholding context</li>
-                  </ul>
-                </div>
-
-                <a
-                  class="dashboard-full-image-link"
-                  href="Assets/financial-analysis-tax-profile-detail.png"
-                  data-dashboard-image="1"
-                  data-caption="Tax Profile Detail"
-                  aria-label="Open Tax Profile Detail dashboard in full size"
-                >
-                  <img
-                    src="Assets/financial-analysis-tax-profile-detail.png"
-                    alt="Tax Profile Detail page of the Financial Analysis Dashboard"
-                  />
-                  <span class="image-expand-label">
-                    <i class="fa-solid fa-expand"></i> Click to view full size
-                  </span>
-                </a>
-              </div>
-
-              <div class="dashboard-page-card full-width-dashboard">
-                <div class="dashboard-page-copy">
-                  <span>TAX INSIGHTS</span>
-
-                  <h3>
-                    Explore trends across income, credits, and deductions.
-                  </h3>
-
-                  <p>
-                    The Tax Insights page focuses on comparison and trend
-                    analysis, helping users see patterns that may be missed when
-                    looking at individual records alone.
-                  </p>
-
-                  <ul>
-                    <li>Average taxable income by filing status</li>
-                    <li>Refunds and amount due by state</li>
-                    <li>Total credits by filing status</li>
-                    <li>Average effective tax rate by income range</li>
-                    <li>Deduction component comparison</li>
-                  </ul>
-                </div>
-
-                <a
-                  class="dashboard-full-image-link"
-                  href="Assets/financial-analysis-tax-insights.png"
-                  data-dashboard-image="2"
-                  data-caption="Tax Insights"
-                  aria-label="Open Tax Insights dashboard in full size"
-                >
-                  <img
-                    src="Assets/financial-analysis-tax-insights.png"
-                    alt="Tax Insights page of the Financial Analysis Dashboard"
-                  />
-                  <span class="image-expand-label">
-                    <i class="fa-solid fa-expand"></i> Click to view full size
-                  </span>
-                </a>
-              </div>
-            </section>
-
-            <section>
-              <p class="section-label">My Process</p>
-              <h2>From raw data to an interactive report.</h2>
-
-              <ol class="numbered-list">
-                <li>
-                  <strong>Prepared the data:</strong> Organized financial,
-                  deduction, credit, and tax-summary data into structured
-                  tables.
-                </li>
-
-                <li>
-                  <strong>Built the data model:</strong> Connected related
-                  tables to support consistent reporting and filtering.
-                </li>
-
-                <li>
-                  <strong>Created core measures:</strong> Built measures for
-                  income, deductions, credits, estimated tax, refund amount,
-                  amount due, and effective tax rate.
-                </li>
-
-                <li>
-                  <strong>Designed the report pages:</strong> Created separate
-                  views for executive summaries, tax-profile review, and trend
-                  analysis.
-                </li>
-
-                <li>
-                  <strong>Formatted for clarity:</strong> Used KPI cards,
-                  financial formatting, consistent titles, and visual hierarchy
-                  to make the report easy to read.
-                </li>
-              </ol>
-            </section>
-
-            <section>
-              <div class="project-disclaimer">
+              <div class="report-page-copy">
+                <p class="report-eyebrow">Executive Overview</p>
+                <h3>Financial performance at a glance.</h3>
                 <p>
-                  <strong>Portfolio Note:</strong> This dashboard was created
-                  for portfolio and learning purposes using protected,
-                  anonymized, or simulated data. It does not provide tax advice
-                  and does not include confidential client information.
+                  A concise view of total income, deductions, credits, estimated
+                  tax, refund amount, and amount due.
                 </p>
               </div>
-            </section>
+            </div>
+
+            <div class="report-focus">
+              <span class="report-focus-label">Key focus</span>
+
+              <div class="focus-tags">
+                <span>Income</span>
+                <span>Deductions</span>
+                <span>Credits</span>
+                <span>Tax outcomes</span>
+                <span>Filing status</span>
+              </div>
+            </div>
           </div>
+
+          <a
+            class="dashboard-full-image-link"
+            href="Assets/financial-analysis-executive-overview.png"
+            data-dashboard-image="0"
+            data-caption="Page 01 · Executive Overview"
+            aria-label="Open Executive Overview dashboard in full size"
+          >
+            <img
+              src="Assets/financial-analysis-executive-overview.png"
+              alt="Executive Overview page of the Financial Analysis Dashboard"
+            />
+            <span class="image-expand-label">
+              <i class="fa-solid fa-expand"></i> View full size
+            </span>
+          </a>
+        </article>
+
+        <article class="report-page" id="tax-profile-detail">
+          <div class="report-page-header">
+            <div class="report-page-intro">
+              <span class="report-page-number">02</span>
+
+              <div class="report-page-copy">
+                <p class="report-eyebrow">Tax Profile Detail</p>
+                <h3>Filter, compare, and review tax outcomes.</h3>
+                <p>
+                  A detail page for exploring client-level financial records
+                  through filing status, state, dependents, income range, and
+                  tax-outcome filters.
+                </p>
+              </div>
+            </div>
+
+            <div class="report-focus">
+              <span class="report-focus-label">Key focus</span>
+
+              <div class="focus-tags">
+                <span>Client records</span>
+                <span>Filters</span>
+                <span>Withholding</span>
+                <span>Effective rate</span>
+                <span>Refund vs. due</span>
+              </div>
+            </div>
+          </div>
+
+          <a
+            class="dashboard-full-image-link"
+            href="Assets/financial-analysis-tax-profile-detail.png"
+            data-dashboard-image="1"
+            data-caption="Page 02 · Tax Profile Detail"
+            aria-label="Open Tax Profile Detail dashboard in full size"
+          >
+            <img
+              src="Assets/financial-analysis-tax-profile-detail.png"
+              alt="Tax Profile Detail page of the Financial Analysis Dashboard"
+            />
+            <span class="image-expand-label">
+              <i class="fa-solid fa-expand"></i> View full size
+            </span>
+          </a>
+        </article>
+
+        <article class="report-page" id="tax-insights">
+          <div class="report-page-header">
+            <div class="report-page-intro">
+              <span class="report-page-number">03</span>
+
+              <div class="report-page-copy">
+                <p class="report-eyebrow">Tax Insights</p>
+                <h3>Compare patterns across key tax dimensions.</h3>
+                <p>
+                  A comparative analysis page that highlights patterns in
+                  taxable income, credits, deduction components, and effective
+                  tax rates.
+                </p>
+              </div>
+            </div>
+
+            <div class="report-focus">
+              <span class="report-focus-label">Key focus</span>
+
+              <div class="focus-tags">
+                <span>States</span>
+                <span>Income ranges</span>
+                <span>Credits</span>
+                <span>Deduction mix</span>
+                <span>Tax rate trends</span>
+              </div>
+            </div>
+          </div>
+
+          <a
+            class="dashboard-full-image-link"
+            href="Assets/financial-analysis-tax-insights.png"
+            data-dashboard-image="2"
+            data-caption="Page 03 · Tax Insights"
+            aria-label="Open Tax Insights dashboard in full size"
+          >
+            <img
+              src="Assets/financial-analysis-tax-insights.png"
+              alt="Tax Insights page of the Financial Analysis Dashboard"
+            />
+            <span class="image-expand-label">
+              <i class="fa-solid fa-expand"></i> View full size
+            </span>
+          </a>
+        </article>
+      </section>
+
+      <section class="process-section-clean">
+        <div class="case-study-wide">
+          <article class="process-card">
+            <p class="section-label">My Process</p>
+            <h2>From structured data to a usable financial report.</h2>
+            <p>
+              I focused on making the report technically connected, visually
+              consistent, and easy for a nontechnical user to navigate.
+            </p>
+
+            <ol class="process-list">
+              <li>
+                <span class="process-number">01</span>
+                <strong>Prepared data</strong>
+                <span
+                  >Organized income, deduction, credit, and tax-summary
+                  records.</span
+                >
+              </li>
+
+              <li>
+                <span class="process-number">02</span>
+                <strong>Built relationships</strong>
+                <span
+                  >Connected related tables for consistent filtering and
+                  reporting.</span
+                >
+              </li>
+
+              <li>
+                <span class="process-number">03</span>
+                <strong>Created measures</strong>
+                <span
+                  >Calculated core financial, tax, refund, and amount-due
+                  metrics.</span
+                >
+              </li>
+
+              <li>
+                <span class="process-number">04</span>
+                <strong>Designed pages</strong>
+                <span
+                  >Created executive, detail, and comparative insight
+                  views.</span
+                >
+              </li>
+
+              <li>
+                <span class="process-number">05</span>
+                <strong>Refined clarity</strong>
+                <span
+                  >Applied financial formatting, hierarchy, labels, and
+                  spacing.</span
+                >
+              </li>
+            </ol>
+
+            <div class="privacy-note">
+              <i class="fa-solid fa-shield-halved"></i>
+              <p>
+                <strong>Portfolio Note:</strong> This dashboard uses protected,
+                anonymized, or simulated data for learning and portfolio
+                purposes. It does not provide tax advice or display confidential
+                client information.
+              </p>
+            </div>
+          </article>
         </div>
       </section>
     </main>
@@ -523,9 +1126,7 @@
         nextButton.addEventListener("click", () => showImage(currentIndex + 1));
 
         modal.addEventListener("click", (event) => {
-          if (event.target === modal) {
-            closeModal();
-          }
+          if (event.target === modal) closeModal();
         });
 
         document.addEventListener("keydown", (event) => {
