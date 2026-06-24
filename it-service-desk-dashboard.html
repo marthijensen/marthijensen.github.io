@@ -4,10 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>IT Service Desk Performance & SLA Dashboard | Marthi Jensen</title>
+    <title>
+      IT Service Desk Performance &amp; SLA Dashboard | Marthi Jensen
+    </title>
     <meta
       name="description"
-      content="Tableau case study by Marthi Jensen analyzing 100,000 simulated IT service desk tickets across ticket volume, service performance, issue themes, and technician workload."
+      content="IT Service Desk Performance and SLA Dashboard case study by Marthi Jensen, built in Tableau using calculated fields, SLA analysis, and IT operations reporting."
     />
 
     <link rel="stylesheet" href="style.css" />
@@ -17,424 +19,485 @@
     ></script>
 
     <style>
-      .case-study-page {
-        background: #f7fafc;
-        color: #172033;
+      /* ==================================================
+         IT SERVICE DESK CASE STUDY — PAGE-ONLY STYLES
+         Designed to match the Financial Analysis case study.
+      ================================================== */
+
+      .itsm-case-study {
+        background: var(--light-bg);
+        padding: 0 0 84px;
       }
 
-      .case-navbar {
-        max-width: 1200px;
+      .itsm-case-study .case-study-wide {
+        width: min(1180px, 88%);
         margin: 0 auto;
-        padding: 20px 28px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 20px;
       }
 
-      .case-brand {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        color: #172033;
-        font-weight: 800;
-        text-decoration: none;
+      .case-study-overview {
+        padding: 78px 0 36px;
       }
 
-      .case-brand-mark {
-        width: 38px;
-        height: 38px;
-        border-radius: 12px;
+      .case-study-overview-grid {
         display: grid;
-        place-items: center;
-        background: linear-gradient(135deg, #0f766e, #2563eb);
-        color: #ffffff;
-        font-size: 0.82rem;
-        letter-spacing: 0.04em;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 24px;
+        align-items: stretch;
       }
 
-      .case-back-link {
-        color: #0f766e;
-        text-decoration: none;
-        font-weight: 800;
-        font-size: 0.95rem;
+      .overview-story,
+      .overview-value {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 32px;
+        box-shadow: var(--shadow);
       }
 
-      .case-hero {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 56px 28px 42px;
-        display: grid;
-        grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.88fr);
-        gap: 46px;
-        align-items: center;
-      }
-
-      .case-eyebrow {
+      .overview-story h2,
+      .overview-value h2,
+      .dashboard-tour-heading h2,
+      .process-card h2 {
         margin: 0 0 14px;
-        color: #0f766e;
-        font-size: 0.8rem;
-        font-weight: 900;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
+        font-size: clamp(1.85rem, 3vw, 2.5rem);
+        line-height: 1.16;
       }
 
-      .case-hero h1 {
+      .overview-story p,
+      .overview-value > p,
+      .dashboard-page-copy > p,
+      .process-card > p {
+        color: var(--text-gray);
         margin: 0;
-        max-width: 760px;
-        color: #13213a;
-        font-size: clamp(2.25rem, 4vw, 4.1rem);
-        line-height: 1.04;
-        letter-spacing: -0.055em;
-      }
-
-      .case-lead {
-        margin: 22px 0 0;
-        max-width: 700px;
-        color: #536176;
-        font-size: 1.1rem;
         line-height: 1.75;
       }
 
-      .case-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin-top: 28px;
+      .overview-story p + p {
+        margin-top: 14px;
       }
 
-      .case-action-primary,
-      .case-action-secondary {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 9px;
-        border-radius: 10px;
-        padding: 13px 18px;
-        text-decoration: none;
-        font-size: 0.95rem;
-        font-weight: 800;
-        transition:
-          transform 0.2s ease,
-          box-shadow 0.2s ease;
+      .overview-value {
+        background:
+          radial-gradient(
+            circle at 88% 10%,
+            rgba(15, 118, 110, 0.13),
+            transparent 33%
+          ),
+          var(--white);
       }
 
-      .case-action-primary {
-        background: #0f766e;
-        color: #ffffff;
-        box-shadow: 0 10px 22px rgba(15, 118, 110, 0.18);
+      .overview-value .section-label {
+        color: var(--green-dark);
       }
 
-      .case-action-secondary {
-        border: 1px solid #cad5e3;
-        background: #ffffff;
-        color: #172033;
+      .overview-value > p {
+        margin-bottom: 22px;
       }
 
-      .case-action-primary:hover,
-      .case-action-secondary:hover {
-        transform: translateY(-2px);
-      }
-
-      .case-summary-panel {
-        overflow: hidden;
-        border: 1px solid #dbe5ef;
-        border-radius: 20px;
-        background: #ffffff;
-        box-shadow: 0 18px 48px rgba(24, 42, 69, 0.1);
-      }
-
-      .summary-panel-top {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 12px;
-        padding: 20px 22px;
-        background: linear-gradient(135deg, #12324b, #0f766e);
-        color: #ffffff;
-      }
-
-      .summary-panel-top p {
-        margin: 0 0 4px;
-        color: rgba(255, 255, 255, 0.72);
-        font-size: 0.76rem;
-        font-weight: 800;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      .summary-panel-top h2 {
-        margin: 0;
-        font-size: 1.15rem;
-      }
-
-      .summary-badge {
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        border-radius: 999px;
-        padding: 6px 10px;
-        background: rgba(255, 255, 255, 0.12);
-        color: #ffffff;
-        font-size: 0.7rem;
-        font-weight: 800;
-        white-space: nowrap;
-      }
-
-      .summary-panel-body {
-        padding: 22px;
-      }
-
-      .summary-metrics {
+      .project-stat-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
       }
 
-      .summary-metric {
-        padding: 14px;
-        border-radius: 14px;
-        background: #f4f8fb;
+      .project-stat {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: var(--light-bg);
+        padding: 16px;
       }
 
-      .summary-metric span {
-        display: block;
-        color: #66758a;
-        font-size: 0.75rem;
-        font-weight: 700;
+      .project-stat i {
+        display: inline-grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        margin-bottom: 10px;
+        border-radius: 9px;
+        background: #dcfce7;
+        color: var(--green-dark);
       }
 
-      .summary-metric strong {
-        display: block;
-        margin-top: 6px;
-        color: #13213a;
-        font-size: 1.45rem;
+      .project-stat:nth-child(2) i {
+        background: #dbeafe;
+        color: var(--blue);
       }
 
-      .summary-note {
-        margin: 16px 0 0;
-        color: #536176;
-        font-size: 0.88rem;
-        line-height: 1.55;
-      }
-
-      .case-section {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 64px 28px;
-      }
-
-      .case-section-label {
-        margin: 0 0 10px;
+      .project-stat:nth-child(3) i {
+        background: #ccfbf1;
         color: #0f766e;
+      }
+
+      .project-stat:nth-child(4) i {
+        background: #fef3c7;
+        color: var(--gold);
+      }
+
+      .project-stat strong {
+        display: block;
+        color: var(--text-dark);
+        font-size: 1.03rem;
+      }
+
+      .project-stat span {
+        display: block;
+        color: var(--text-gray);
+        font-size: 0.82rem;
+        margin-top: 3px;
+      }
+
+      .dashboard-tour {
+        padding: 36px 0 18px;
+      }
+
+      .dashboard-tour-heading {
+        max-width: 790px;
+        margin-bottom: 30px;
+      }
+
+      .dashboard-tour-heading .section-label {
+        color: var(--green-dark);
+      }
+
+      .dashboard-tour-heading > p:last-of-type {
+        color: var(--text-gray);
+        line-height: 1.7;
+        max-width: 730px;
+      }
+
+      .dashboard-page-navigation {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 22px;
+      }
+
+      .dashboard-page-navigation a {
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: var(--white);
+        color: var(--text-dark);
+        padding: 10px 15px;
+        font-size: 0.86rem;
+        font-weight: 800;
+        transition: 0.22s ease;
+      }
+
+      .dashboard-page-navigation a:hover {
+        border-color: var(--green-dark);
+        color: var(--green-dark);
+        transform: translateY(-1px);
+      }
+
+      .tableau-embed-section {
+        scroll-margin-top: 30px;
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 30px;
+        margin: 28px 0 38px;
+        box-shadow: var(--shadow);
+      }
+
+      .tableau-embed-header {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 28px;
+        align-items: center;
+        margin-bottom: 26px;
+      }
+
+      .dashboard-page-intro {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+      }
+
+      .dashboard-page-number {
+        flex: 0 0 auto;
+        display: grid;
+        place-items: center;
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        background: #dcfce7;
+        color: var(--green-dark);
+        font-size: 0.88rem;
+        font-weight: 900;
+        letter-spacing: 0.04em;
+      }
+
+      .dashboard-eyebrow {
+        color: var(--green-dark);
         font-size: 0.78rem;
         font-weight: 900;
-        letter-spacing: 0.11em;
+        letter-spacing: 1.5px;
+        margin: 1px 0 5px;
         text-transform: uppercase;
       }
 
-      .case-section h2 {
-        margin: 0;
-        color: #13213a;
-        font-size: clamp(1.7rem, 2.5vw, 2.45rem);
-        letter-spacing: -0.035em;
+      .dashboard-page-copy h3 {
+        margin: 0 0 8px;
+        color: var(--text-dark);
+        font-size: 1.5rem;
+        line-height: 1.25;
       }
 
-      .case-section-intro {
-        max-width: 760px;
-        margin: 16px 0 0;
-        color: #536176;
-        line-height: 1.75;
+      .dashboard-page-copy > p {
+        max-width: 710px;
       }
 
-      .case-detail-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 18px;
-        margin-top: 28px;
+      .dashboard-focus {
+        border-left: 3px solid var(--green-dark);
+        padding: 8px 0 8px 18px;
       }
 
-      .case-detail-card {
-        min-height: 190px;
-        padding: 24px;
-        border: 1px solid #dbe5ef;
-        border-radius: 16px;
-        background: #ffffff;
+      .dashboard-focus-label {
+        display: block;
+        color: var(--text-dark);
+        font-size: 0.76rem;
+        font-weight: 900;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
       }
 
-      .case-detail-card i {
-        color: #0f766e;
-        font-size: 1.25rem;
+      .focus-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
       }
 
-      .case-detail-card h3 {
-        margin: 16px 0 10px;
-        color: #13213a;
-        font-size: 1.08rem;
-      }
-
-      .case-detail-card p {
-        margin: 0;
-        color: #5d6b7e;
-        font-size: 0.93rem;
-        line-height: 1.65;
-      }
-
-      .dashboard-frame-section {
-        background: #eaf3f5;
+      .focus-tags span {
+        border-radius: 999px;
+        background: var(--light-bg);
+        color: var(--text-gray);
+        padding: 7px 10px;
+        font-size: 0.78rem;
+        font-weight: 700;
       }
 
       .tableau-shell {
         overflow: hidden;
-        margin-top: 28px;
-        border: 1px solid #cfe0e5;
-        border-radius: 18px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
         background: #ffffff;
-        box-shadow: 0 18px 48px rgba(15, 118, 110, 0.1);
       }
 
-      .tableau-header {
+      .tableau-shell-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 16px;
-        padding: 14px 18px;
-        border-bottom: 1px solid #e5edf1;
-        background: #ffffff;
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--border);
+        background: var(--light-bg);
       }
 
-      .tableau-header strong {
-        color: #13213a;
-        font-size: 0.92rem;
+      .tableau-shell-header span {
+        color: var(--text-gray);
+        font-size: 0.86rem;
+        line-height: 1.5;
       }
 
-      .tableau-header span {
-        color: #66758a;
-        font-size: 0.8rem;
+      .tableau-shell-header a {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--green-dark);
+        font-size: 0.85rem;
+        font-weight: 800;
+        white-space: nowrap;
       }
 
       .tableau-placeholder {
         width: 100%;
-        min-height: 780px;
+        min-height: 790px;
       }
 
       .tableau-placeholder object,
       .tableau-placeholder iframe {
+        display: block;
         width: 100% !important;
-        min-height: 780px !important;
+        min-height: 790px !important;
+      }
+
+      .insight-section {
+        padding: 0 0 36px;
       }
 
       .insight-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 18px;
-        margin-top: 28px;
+        margin-top: 24px;
       }
 
       .insight-card {
-        padding: 24px;
-        border-left: 5px solid #0f766e;
+        border-left: 4px solid var(--green-dark);
         border-radius: 0 14px 14px 0;
-        background: #ffffff;
-        box-shadow: 0 10px 26px rgba(25, 42, 68, 0.06);
+        background: var(--white);
+        padding: 22px;
+        box-shadow: var(--shadow);
       }
 
       .insight-card h3 {
         margin: 0 0 9px;
-        color: #13213a;
-        font-size: 1.06rem;
+        color: var(--text-dark);
+        font-size: 1.04rem;
       }
 
       .insight-card p {
         margin: 0;
-        color: #55657a;
-        font-size: 0.94rem;
+        color: var(--text-gray);
+        font-size: 0.92rem;
         line-height: 1.65;
+      }
+
+      .process-section-clean {
+        padding: 36px 0 0;
+      }
+
+      .process-card {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 34px;
+        box-shadow: var(--shadow);
+      }
+
+      .process-card .section-label {
+        color: var(--blue);
       }
 
       .process-list {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 14px;
-        margin-top: 28px;
-      }
-
-      .process-item {
-        padding: 20px;
-        border-radius: 16px;
-        background: #ffffff;
-        border: 1px solid #dbe5ef;
-      }
-
-      .process-number {
-        display: grid;
-        width: 30px;
-        height: 30px;
-        place-items: center;
-        border-radius: 50%;
-        background: #e1f2ed;
-        color: #0f766e;
-        font-size: 0.82rem;
-        font-weight: 900;
-      }
-
-      .process-item h3 {
-        margin: 15px 0 8px;
-        color: #13213a;
-        font-size: 1rem;
-      }
-
-      .process-item p {
-        margin: 0;
-        color: #5d6b7e;
-        font-size: 0.89rem;
-        line-height: 1.6;
-      }
-
-      .case-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 9px;
-        margin: 22px 0 0;
+        margin: 26px 0 0;
         padding: 0;
         list-style: none;
       }
 
-      .case-tags li {
-        border: 1px solid #c9e1db;
-        border-radius: 999px;
-        padding: 7px 11px;
-        background: #ffffff;
-        color: #0f766e;
-        font-size: 0.78rem;
-        font-weight: 800;
-      }
-
-      .case-note {
-        margin-top: 24px;
-        padding: 18px 20px;
+      .process-list li {
+        border: 1px solid var(--border);
         border-radius: 14px;
-        background: #fff8e7;
-        color: #725a1d;
-        font-size: 0.9rem;
+        background: var(--light-bg);
+        padding: 18px 15px;
+      }
+
+      .process-list strong {
+        display: block;
+        color: var(--text-dark);
+        font-size: 0.92rem;
+        margin-bottom: 7px;
+      }
+
+      .process-list span {
+        color: var(--text-gray);
+        display: block;
+        font-size: 0.82rem;
+        line-height: 1.5;
+      }
+
+      .process-list .process-number {
+        display: inline-grid;
+        place-items: center;
+        width: 28px;
+        height: 28px;
+        margin-bottom: 12px;
+        border-radius: 50%;
+        background: var(--dark-navy);
+        color: var(--green);
+        font-size: 0.76rem;
+        font-weight: 900;
+      }
+
+      .dataset-note {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        margin-top: 22px;
+        border: 1px solid #c6e7df;
+        border-radius: 14px;
+        background: #effcf8;
+        padding: 18px 20px;
+      }
+
+      .dataset-note i {
+        color: var(--green-dark);
+        font-size: 1.25rem;
+        margin-top: 2px;
+      }
+
+      .dataset-note p {
+        color: #14532d;
         line-height: 1.65;
+        margin: 0;
       }
 
-      .case-footer {
-        padding: 32px 28px 44px;
-        text-align: center;
-        color: #68778b;
-        font-size: 0.88rem;
+      .dataset-note a {
+        color: #0f766e;
+        font-weight: 800;
+        text-decoration: underline;
+        text-underline-offset: 2px;
       }
 
-      @media (max-width: 860px) {
-        .case-hero,
-        .case-detail-grid,
-        .insight-grid,
-        .process-list {
+      @media (max-width: 1000px) {
+        .case-study-overview-grid,
+        .tableau-embed-header {
           grid-template-columns: 1fr;
         }
 
-        .case-hero {
-          padding-top: 30px;
+        .process-list {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .dashboard-focus {
+          border-left: 0;
+          border-top: 3px solid var(--green-dark);
+          padding: 16px 0 0;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .itsm-case-study .case-study-wide {
+          width: min(92%, 1180px);
+        }
+
+        .case-study-overview {
+          padding: 55px 0 25px;
+        }
+
+        .overview-story,
+        .overview-value,
+        .tableau-embed-section,
+        .process-card {
+          padding: 24px;
+        }
+
+        .project-stat-grid,
+        .process-list,
+        .insight-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .tableau-embed-header {
+          gap: 20px;
+        }
+
+        .dashboard-page-intro {
+          gap: 12px;
+        }
+
+        .dashboard-page-number {
+          width: 42px;
+          height: 42px;
+          border-radius: 12px;
+        }
+
+        .dashboard-page-copy h3 {
+          font-size: 1.28rem;
         }
 
         .tableau-placeholder,
@@ -442,312 +505,443 @@
         .tableau-placeholder iframe {
           min-height: 640px !important;
         }
-      }
 
-      @media (max-width: 560px) {
-        .case-navbar {
-          padding: 16px 20px;
-        }
-
-        .case-hero,
-        .case-section {
-          padding-left: 20px;
-          padding-right: 20px;
-        }
-
-        .case-back-link {
-          font-size: 0.82rem;
-        }
-
-        .summary-metrics {
-          grid-template-columns: 1fr;
+        .tableau-shell-header {
+          align-items: flex-start;
+          flex-direction: column;
         }
       }
     </style>
   </head>
 
-  <body class="case-study-page">
-    <nav class="case-navbar" aria-label="Case study navigation">
-      <a class="case-brand" href="index.html">
-        <span class="case-brand-mark">MJ</span>
-        <span>Marthi Jensen</span>
-      </a>
-      <a class="case-back-link" href="index.html#projects">
-        <i class="fa-solid fa-arrow-left"></i> Back to projects
-      </a>
-    </nav>
+  <body>
+    <header class="project-hero">
+      <nav class="navbar">
+        <div class="logo-area">
+          <div class="logo">MJ</div>
+          <span>Marthi Jensen</span>
+        </div>
 
-    <main>
-      <section class="case-hero">
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="index.html#projects" class="active">Projects</a>
+          <a href="index.html#skills">Skills</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#contact">Contact</a>
+
+          <a
+            href="resume.pdf"
+            class="resume-button"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-solid fa-download"></i> Resume
+          </a>
+        </div>
+      </nav>
+
+      <section class="project-hero-content">
         <div>
-          <p class="case-eyebrow">Tableau Portfolio Project</p>
-          <h1>IT Service Desk Performance &amp; SLA Dashboard</h1>
-          <p class="case-lead">
-            An interactive Tableau dashboard built to help IT leaders evaluate
-            ticket demand, service performance, recurring issue themes, support
-            channels, and technician workload across 100,000 simulated service
-            desk tickets.
+          <p class="eyebrow">Completed Tableau Portfolio Project</p>
+
+          <h1>
+            IT Service Desk<br />
+            <span>Performance &amp; SLA Dashboard</span>
+          </h1>
+
+          <p class="project-subtitle">
+            A three-page Tableau workbook that brings ticket volume, recurring
+            issue themes, service-level performance, response speed, and
+            technician workload into one clear IT operations reporting
+            experience.
           </p>
 
-          <div class="case-actions">
+          <div class="hero-buttons">
+            <a href="#interactive-dashboard" class="primary-button">
+              Explore Interactive Dashboard
+            </a>
+
+            <a href="index.html#projects" class="secondary-button">
+              Back to Projects
+            </a>
+          </div>
+        </div>
+
+        <div class="project-hero-right">
+          <aside class="project-summary-card">
+            <p class="section-label">Project Snapshot</p>
+
+            <h3>Making service desk activity easier to understand.</h3>
+
+            <p>
+              I designed an interactive Tableau experience that supports an
+              executive workload summary, issue and root-cause review, and
+              priority-based SLA and technician performance analysis.
+            </p>
+
+            <p>
+              Use the navigation buttons inside the Tableau workbook to move
+              between all three reporting views.
+            </p>
+          </aside>
+
+          <div class="project-meta-grid project-meta-right">
+            <div>
+              <span>Role</span>
+              <strong>Data Analyst &amp; Dashboard Designer</strong>
+            </div>
+
+            <div>
+              <span>Project Type</span>
+              <strong>IT Operations Analytics Portfolio Project</strong>
+            </div>
+
+            <div>
+              <span>Tools</span>
+              <strong>Tableau Public, Calculated Fields, SLA Analysis</strong>
+            </div>
+
+            <div>
+              <span>Focus</span>
+              <strong>Service Desk Performance &amp; Workload Reporting</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <main class="itsm-case-study">
+      <section class="case-study-overview">
+        <div class="case-study-wide case-study-overview-grid">
+          <article class="overview-story">
+            <p class="section-label">The Challenge</p>
+            <h2>
+              Service desk data is more useful when it tells an operational
+              story.
+            </h2>
+
+            <p>
+              Ticket counts alone do not tell IT leaders where support demand is
+              coming from, whether urgent work receives faster service, or how
+              workload is distributed across technicians and support levels.
+            </p>
+
+            <p>
+              This project turns a large IT service desk dataset into a linked
+              Tableau reporting experience that supports both quick executive
+              review and deeper operational exploration.
+            </p>
+          </article>
+
+          <article class="overview-value">
+            <p class="section-label">What I Built</p>
+            <h2>A focused three-page operations reporting experience.</h2>
+
+            <p>
+              Each dashboard has a distinct role, helping users move from
+              service-desk volume and backlog visibility to root-cause analysis
+              and performance-focused workload review.
+            </p>
+
+            <div class="project-stat-grid">
+              <div class="project-stat">
+                <i class="fa-solid fa-layer-group"></i>
+                <strong>3 dashboards</strong>
+                <span>Overview, root cause, and performance views</span>
+              </div>
+
+              <div class="project-stat">
+                <i class="fa-solid fa-ticket"></i>
+                <strong>100K tickets</strong>
+                <span>Simulated service desk records analyzed</span>
+              </div>
+
+              <div class="project-stat">
+                <i class="fa-solid fa-stopwatch"></i>
+                <strong>2.3 hrs</strong>
+                <span>Average resolution time</span>
+              </div>
+
+              <div class="project-stat">
+                <i class="fa-solid fa-reply"></i>
+                <strong>0.5 hrs</strong>
+                <span>Average first response time</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section
+        class="dashboard-tour case-study-wide"
+        id="interactive-dashboard"
+      >
+        <div class="dashboard-tour-heading">
+          <p class="section-label">Interactive Dashboard</p>
+          <h2>
+            Three views, each designed for a different IT operations question.
+          </h2>
+          <p>
+            The Tableau workbook moves from an executive overview to issue and
+            root-cause analysis, then to SLA and technician performance. Use the
+            dashboard navigation buttons to move between pages.
+          </p>
+
+          <nav
+            class="dashboard-page-navigation"
+            aria-label="Dashboard page navigation"
+          >
+            <a href="#interactive-dashboard">01 · Executive Overview</a>
             <a
-              class="case-action-primary"
-              href="https://public.tableau.com/views/IT_Service_Desk_Performance_SLA_Dashboard/ServiceDeskExecutiveOverview?:language=en-US&:display_count=n&:origin=viz_share_link"
+              href="https://public.tableau.com/views/IT_Service_Desk_Performance_SLA_Dashboard/IssueRootCauseAnalysis?:language=en-US&:display_count=n&:origin=viz_share_link"
               target="_blank"
               rel="noopener noreferrer"
+              >02 · Root Cause Analysis</a
             >
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              Open Interactive Dashboard
-            </a>
-            <a class="case-action-secondary" href="#dashboard">
-              <i class="fa-solid fa-chart-line"></i>
-              View Dashboard Preview
-            </a>
-          </div>
-
-          <ul class="case-tags" aria-label="Tools used">
-            <li>Tableau Public</li>
-            <li>Calculated Fields</li>
-            <li>SLA Analysis</li>
-            <li>IT Operations Analytics</li>
-            <li>Dashboard Design</li>
-          </ul>
+            <a
+              href="https://public.tableau.com/views/IT_Service_Desk_Performance_SLA_Dashboard/SLATechnicianPerformance?:language=en-US&:display_count=n&:origin=viz_share_link"
+              target="_blank"
+              rel="noopener noreferrer"
+              >03 · SLA &amp; Technician Performance</a
+            >
+          </nav>
         </div>
 
-        <aside class="case-summary-panel" aria-label="Project snapshot">
-          <div class="summary-panel-top">
-            <div>
-              <p>Project snapshot</p>
-              <h2>Service Desk Operations</h2>
-            </div>
-            <span class="summary-badge">Completed</span>
-          </div>
-          <div class="summary-panel-body">
-            <div class="summary-metrics">
-              <div class="summary-metric">
-                <span>Tickets analyzed</span>
-                <strong>100K</strong>
-              </div>
-              <div class="summary-metric">
-                <span>Avg. resolution</span>
-                <strong>2.3 hrs</strong>
-              </div>
-              <div class="summary-metric">
-                <span>Avg. first response</span>
-                <strong>0.5 hrs</strong>
-              </div>
-              <div class="summary-metric">
-                <span>Dashboards</span>
-                <strong>3</strong>
+        <article class="tableau-embed-section">
+          <div class="tableau-embed-header">
+            <div class="dashboard-page-intro">
+              <span class="dashboard-page-number">01</span>
+              <div class="dashboard-page-copy">
+                <p class="dashboard-eyebrow">Executive Overview</p>
+                <h3>Service desk performance at a glance.</h3>
+                <p>
+                  A concise view of ticket volume, open workload, resolved
+                  tickets, average resolution time, ticket status, and priority
+                  distribution.
+                </p>
               </div>
             </div>
-            <p class="summary-note">
-              The workbook includes an executive overview, issue and root-cause
-              analysis, and SLA and technician-performance reporting.
-            </p>
-          </div>
-        </aside>
-      </section>
 
-      <section class="case-section">
-        <p class="case-section-label">The business problem</p>
-        <h2>Turn ticket data into a usable service-management view.</h2>
-        <p class="case-section-intro">
-          IT service leaders need to understand more than the number of tickets
-          coming in. They need a clear view of backlog, issue patterns, response
-          speed, resolution performance, and how work is distributed across
-          support teams. This project translates a large simulated ticket
-          dataset into a dashboard experience designed for operational
-          decision-making.
-        </p>
-
-        <div class="case-detail-grid">
-          <article class="case-detail-card">
-            <i class="fa-solid fa-circle-question"></i>
-            <h3>Questions answered</h3>
-            <p>
-              How many tickets are created, resolved, or still open? Which issue
-              themes and channels generate demand? Are urgent tickets receiving
-              faster service?
-            </p>
-          </article>
-
-          <article class="case-detail-card">
-            <i class="fa-solid fa-database"></i>
-            <h3>Data used</h3>
-            <p>
-              A synthetic IT service desk dataset with ticket status, priority,
-              issue topic, support channel, agent group, timestamps, support
-              level, and technician information.
-            </p>
-          </article>
-
-          <article class="case-detail-card">
-            <i class="fa-solid fa-gauge-high"></i>
-            <h3>Dashboard design</h3>
-            <p>
-              Three linked Tableau dashboards move from an executive summary to
-              root-cause exploration and then to SLA and technician-performance
-              analysis.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="case-section dashboard-frame-section" id="dashboard">
-        <p class="case-section-label">Interactive dashboard</p>
-        <h2>Explore the Tableau workbook.</h2>
-        <p class="case-section-intro">
-          Use the navigation buttons in the dashboard to move between the
-          Executive Overview, Issue &amp; Root Cause Analysis, and SLA &amp;
-          Technician Performance pages.
-        </p>
-
-        <div class="tableau-shell">
-          <div class="tableau-header">
-            <strong>IT Service Desk Performance &amp; SLA Dashboard</strong>
-            <span>Interactive Tableau Public view</span>
+            <div class="dashboard-focus">
+              <span class="dashboard-focus-label">Key focus</span>
+              <div class="focus-tags">
+                <span>Ticket volume</span>
+                <span>Backlog status</span>
+                <span>Priority mix</span>
+                <span>Resolution time</span>
+                <span>Weekly demand</span>
+              </div>
+            </div>
           </div>
 
-          <div class="tableau-placeholder" id="tableau-viz">
-            <noscript>
+          <div class="tableau-shell">
+            <div class="tableau-shell-header">
+              <span>Interactive Tableau Public workbook</span>
               <a
                 href="https://public.tableau.com/views/IT_Service_Desk_Performance_SLA_Dashboard/ServiceDeskExecutiveOverview?:language=en-US&:display_count=n&:origin=viz_share_link"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Open the IT Service Desk Performance &amp; SLA Dashboard on
-                Tableau Public.
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                Open full dashboard
               </a>
-            </noscript>
-            <object class="tableauViz" style="display: none">
-              <param
-                name="host_url"
-                value="https%3A%2F%2Fpublic.tableau.com%2F"
-              />
-              <param name="embed_code_version" value="3" />
-              <param name="site_root" value="" />
-              <param
-                name="name"
-                value="IT_Service_Desk_Performance_SLA_Dashboard/ServiceDeskExecutiveOverview"
-              />
-              <param name="tabs" value="no" />
-              <param name="toolbar" value="yes" />
-              <param name="static_image" value="" />
-              <param name="animate_transition" value="yes" />
-              <param name="display_static_image" value="yes" />
-              <param name="display_spinner" value="yes" />
-              <param name="display_overlay" value="yes" />
-              <param name="display_count" value="yes" />
-              <param name="language" value="en-US" />
-            </object>
+            </div>
+
+            <div class="tableau-placeholder" id="tableau-viz">
+              <noscript>
+                <a
+                  href="https://public.tableau.com/views/IT_Service_Desk_Performance_SLA_Dashboard/ServiceDeskExecutiveOverview?:language=en-US&:display_count=n&:origin=viz_share_link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Open the IT Service Desk Performance &amp; SLA Dashboard on
+                  Tableau Public.
+                </a>
+              </noscript>
+              <object class="tableauViz" style="display: none">
+                <param
+                  name="host_url"
+                  value="https%3A%2F%2Fpublic.tableau.com%2F"
+                />
+                <param name="embed_code_version" value="3" />
+                <param name="site_root" value="" />
+                <param
+                  name="name"
+                  value="IT_Service_Desk_Performance_SLA_Dashboard/ServiceDeskExecutiveOverview"
+                />
+                <param name="tabs" value="no" />
+                <param name="toolbar" value="yes" />
+                <param name="static_image" value="" />
+                <param name="animate_transition" value="yes" />
+                <param name="display_static_image" value="yes" />
+                <param name="display_spinner" value="yes" />
+                <param name="display_overlay" value="yes" />
+                <param name="display_count" value="yes" />
+                <param name="language" value="en-US" />
+              </object>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="insight-section">
+        <div class="case-study-wide">
+          <p class="section-label">Key Findings</p>
+          <h2>What the dashboard revealed.</h2>
+
+          <div class="insight-grid">
+            <article class="insight-card">
+              <h3>Weekly demand was stable</h3>
+              <p>
+                Weekly ticket volume stayed near roughly 5,100–5,400 tickets,
+                providing a consistent baseline for staffing and capacity
+                planning.
+              </p>
+            </article>
+
+            <article class="insight-card">
+              <h3>Backlog visibility matters</h3>
+              <p>
+                Open and in-progress tickets represented the largest active
+                workload, reinforcing the value of status monitoring for
+                operational prioritization.
+              </p>
+            </article>
+
+            <article class="insight-card">
+              <h3>Demand was broadly distributed</h3>
+              <p>
+                Issue topics, support channels, and support teams were closely
+                balanced, so no single category dominated total service desk
+                volume.
+              </p>
+            </article>
+
+            <article class="insight-card">
+              <h3>Urgency influenced speed</h3>
+              <p>
+                Critical tickets received the fastest response and resolution,
+                while lower-priority work took longer as expected in a
+                priority-based support process.
+              </p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="case-section">
-        <p class="case-section-label">Key findings</p>
-        <h2>What the dashboard revealed.</h2>
-        <div class="insight-grid">
-          <article class="insight-card">
-            <h3>Stable weekly demand</h3>
+      <section class="process-section-clean">
+        <div class="case-study-wide">
+          <article class="process-card">
+            <p class="section-label">My Process</p>
+            <h2>From ticket data to an operational Tableau workbook.</h2>
             <p>
-              Weekly ticket volume remained relatively stable at roughly
-              5,100–5,400 tickets, creating a predictable baseline for staffing
-              and support-capacity planning.
+              I focused on making the dashboard useful for an IT leader while
+              keeping the calculations, layout, and navigation clear enough for
+              an unfamiliar user to understand quickly.
             </p>
-          </article>
 
-          <article class="insight-card">
-            <h3>Backlog visibility matters</h3>
-            <p>
-              Open and in-progress tickets represented the largest active
-              workload, making ticket status and backlog monitoring important
-              for operational prioritization.
-            </p>
-          </article>
+            <ol class="process-list">
+              <li>
+                <span class="process-number">01</span>
+                <strong>Profiled data</strong>
+                <span
+                  >Reviewed ticket fields, dates, priorities, statuses, sources,
+                  agents, and support levels.</span
+                >
+              </li>
 
-          <article class="insight-card">
-            <h3>Demand is broadly distributed</h3>
-            <p>
-              Issue topics, support teams, and ticket channels were closely
-              balanced. No single category dominated volume, so improvement
-              opportunities should be monitored across the whole service desk.
-            </p>
-          </article>
+              <li>
+                <span class="process-number">02</span>
+                <strong>Created calculations</strong>
+                <span
+                  >Built calculated fields for ticket counts, open workload,
+                  resolution time, and first-response time.</span
+                >
+              </li>
 
-          <article class="insight-card">
-            <h3>Priority affects service speed</h3>
-            <p>
-              Critical tickets received the fastest first response and
-              resolution, while lower-priority requests took longer, reflecting
-              a logical urgency-based service pattern.
-            </p>
-          </article>
-        </div>
-      </section>
+              <li>
+                <span class="process-number">03</span>
+                <strong>Designed dashboards</strong>
+                <span
+                  >Structured executive, root-cause, and technician-performance
+                  views around operational questions.</span
+                >
+              </li>
 
-      <section class="case-section">
-        <p class="case-section-label">Approach</p>
-        <h2>How I built the analysis.</h2>
-        <div class="process-list">
-          <article class="process-item">
-            <div class="process-number">1</div>
-            <h3>Profile the data</h3>
-            <p>
-              Reviewed ticket fields, dates, priorities, statuses, agents, and
-              source channels to identify usable operational dimensions.
-            </p>
-          </article>
+              <li>
+                <span class="process-number">04</span>
+                <strong>Refined usability</strong>
+                <span
+                  >Added key takeaways, clear labels, consistent layout, and
+                  in-dashboard navigation.</span
+                >
+              </li>
+            </ol>
 
-          <article class="process-item">
-            <div class="process-number">2</div>
-            <h3>Create calculations</h3>
-            <p>
-              Built calculated fields for ticket counts, open-ticket volume,
-              resolution time, first-response time, and performance metrics.
-            </p>
+            <div class="dataset-note">
+              <i class="fa-solid fa-shield-halved"></i>
+              <p>
+                <strong>Dataset note:</strong> This portfolio project uses
+                simulated IT service desk data from the
+                <a
+                  href="https://www.kaggle.com/datasets/swapniljadhav96/itsm-dataset?resource=download"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >ITSM Dataset on Kaggle</a
+                >. It was selected to demonstrate Tableau dashboard development,
+                calculated fields, service-level analysis, and IT operations
+                reporting without using confidential organizational data.
+              </p>
+            </div>
           </article>
-
-          <article class="process-item">
-            <div class="process-number">3</div>
-            <h3>Design dashboard flow</h3>
-            <p>
-              Structured the workbook from executive-level performance to issue
-              analysis and then technician and SLA performance.
-            </p>
-          </article>
-
-          <article class="process-item">
-            <div class="process-number">4</div>
-            <h3>Communicate insights</h3>
-            <p>
-              Added concise takeaway statements, clear labels, and navigation
-              between pages to make the reporting easy to use.
-            </p>
-          </article>
-        </div>
-
-        <div class="case-note">
-          <strong>Dataset note:</strong> This portfolio project uses simulated
-          IT service desk data from the
-          <a
-            href="https://www.kaggle.com/datasets/swapniljadhav96/itsm-dataset?resource=download"
-            target="_blank"
-            rel="noopener noreferrer"
-            >ITSM Dataset on Kaggle</a
-          >. It was selected to demonstrate Tableau dashboard development,
-          calculated fields, service-level analysis, and IT operations reporting
-          without using confidential organizational data.
         </div>
       </section>
     </main>
 
-    <footer class="case-footer">
-      <p>
-        © 2026 Marthi Jensen ·
-        <a href="index.html#projects">View all projects</a>
-      </p>
+    <footer id="contact">
+      <div class="footer-content">
+        <div>
+          <p class="section-label">Let’s Connect</p>
+          <h2>I’m open to new opportunities and collaborations.</h2>
+
+          <a href="mailto:marthijensen@gmail.com" class="primary-button">
+            Get in Touch
+          </a>
+        </div>
+
+        <div class="footer-links">
+          <a href="mailto:marthijensen@gmail.com">
+            <i class="fa-solid fa-envelope"></i> marthijensen@gmail.com
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/marthijensen/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-brands fa-linkedin"></i>
+            linkedin.com/in/marthijensen
+          </a>
+
+          <a
+            href="https://github.com/marthijensen"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-brands fa-github"></i>
+            github.com/marthijensen
+          </a>
+        </div>
+
+        <div class="quote-box">
+          <p>
+            Data is more than numbers. It is about understanding people, solving
+            problems, and creating impact.
+          </p>
+        </div>
+      </div>
+
+      <p class="copyright">© 2026 Marthi Jensen. All rights reserved.</p>
     </footer>
 
     <script type="text/javascript">
