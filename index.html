@@ -1,14 +1,18 @@
 <!doctype html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Marthi Jensen | Business Intelligence Portfolio</title>
+    <title>
+      Marthi Jensen | Business Intelligence & Financial Data Portfolio
+    </title>
 
     <meta
       name="description"
-      content="Marthi Jensen's Business Intelligence and Data Visualization portfolio featuring Power BI dashboards, SQL projects, and business analytics work."
+      content="Marthi Jensen's portfolio featuring business intelligence, financial data automation, Power BI, SQL, Power Automate, analytics, and process improvement projects."
     />
 
     <link rel="stylesheet" href="style.css" />
@@ -21,7 +25,7 @@
     ></script>
 
     <style>
-      /* Reliable inline process illustrations — do not depend on Font Awesome loading */
+      /* Reliable inline process illustrations */
       .process-step .process-icon {
         width: 112px;
         height: 112px;
@@ -34,20 +38,86 @@
         color: #16a34a;
         box-shadow: 0 14px 30px rgba(22, 163, 74, 0.12);
       }
+
       .process-step .process-icon svg {
         width: 54px;
         height: 54px;
         display: block;
       }
+
       .process-step > i {
         display: none !important;
       }
+
+      /* Experience section */
+      .experience-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-top: 36px;
+      }
+
+      .experience-card {
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 18px;
+        padding: 28px;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .experience-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+      }
+
+      .experience-card.current {
+        border-top: 4px solid #16a34a;
+      }
+
+      .experience-company {
+        color: #16a34a;
+        font-weight: 800;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 8px;
+      }
+
+      .experience-card h3 {
+        margin-bottom: 6px;
+      }
+
+      .experience-date {
+        font-size: 0.88rem;
+        color: #64748b;
+        margin-bottom: 18px;
+      }
+
+      .experience-card ul {
+        padding-left: 18px;
+        margin: 0;
+      }
+
+      .experience-card li {
+        margin-bottom: 10px;
+        line-height: 1.6;
+      }
+
+      @media (max-width: 900px) {
+        .experience-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
       @media (max-width: 760px) {
         .process-step .process-icon {
           width: 92px;
           height: 92px;
           margin-bottom: 18px;
         }
+
         .process-step .process-icon svg {
           width: 44px;
           height: 44px;
@@ -67,10 +137,12 @@
 
         <div class="nav-links">
           <a href="#home" class="active">Home</a>
+          <a href="#experience">Experience</a>
           <a href="#projects">Projects</a>
           <a href="#skills">Skills</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
+
           <a
             href="resume.pdf"
             class="resume-button"
@@ -83,10 +155,11 @@
       </nav>
 
       <!-- HERO SECTION -->
-      <!-- RESUME-->
       <section class="hero-content">
         <div class="hero-text">
-          <p class="eyebrow">Business Intelligence & Data Visualization</p>
+          <p class="eyebrow">
+            Business Intelligence • Financial Data • Automation
+          </p>
 
           <h1>
             Hi, I’m <br />
@@ -94,14 +167,14 @@
           </h1>
 
           <p class="hero-description">
-            I build clear, decision-ready dashboards that help teams understand
-            performance, identify trends, and take action. I combine Power BI,
-            SQL, Excel, and accounting knowledge to turn complex data into
-            useful business insights.
+            I build data and automation solutions that turn complex business
+            processes into clear insights and efficient workflows. I combine
+            Power BI, SQL, Excel, Power Automate, and accounting knowledge to
+            solve real business problems and support better decisions.
           </p>
 
           <div class="hero-buttons">
-            <a href="#projects" class="primary-button">View Projects</a>
+            <a href="#projects" class="primary-button">View My Work</a>
 
             <a
               href="resume.pdf"
@@ -123,17 +196,19 @@
           </div>
 
           <div class="hero-info">
-            <span><i class="fa-solid fa-location-dot"></i> Orem, Utah</span>
+            <span> <i class="fa-solid fa-location-dot"></i> Orem, Utah </span>
+
             <span>
-              <i class="fa-solid fa-graduation-cap"></i> Utah Valley University
+              <i class="fa-solid fa-briefcase"></i> Financial Data Specialist
             </span>
+
             <span>
               <i class="fa-solid fa-envelope"></i> marthijensen@gmail.com
             </span>
           </div>
         </div>
 
-        <!-- PORTFOLIO DASHBOARD -->
+        <!-- PORTFOLIO SNAPSHOT -->
         <div class="dashboard-preview profile-dashboard">
           <div class="profile-dashboard-header">
             <div>
@@ -141,17 +216,16 @@
               <h3>Marthi Overview</h3>
             </div>
 
-            <span class="status-pill"
-              >Seeking Business Intelligence, Data Analyst, and Financial
-              Analytics opportunities.</span
-            >
+            <span class="status-pill">
+              Business Intelligence • Financial Data • Automation
+            </span>
           </div>
 
           <div class="metric-grid profile-metrics">
             <div class="metric-card">
-              <p>Current Focus</p>
-              <h4>Business Intelligence</h4>
-              <span>Dashboards • Reporting • Analytics</span>
+              <p>Current Role</p>
+              <h4>Financial Data Specialist</h4>
+              <span>Finance • Data • Automation</span>
             </div>
 
             <div class="metric-card">
@@ -161,17 +235,15 @@
             </div>
 
             <div class="metric-card">
-              <p>Location</p>
-              <h4>Orem, Utah</h4>
-              <span
-                >Financial Analytics • IT Operations • Student Services</span
-              >
+              <p>Current Focus</p>
+              <h4>Business Automation</h4>
+              <span>Financial Workflows • BI • Analytics</span>
             </div>
 
             <div class="metric-card">
               <p>Core Tools</p>
               <h4>Power BI • SQL</h4>
-              <span>Excel • Power Query • DAX</span>
+              <span>Power Automate • Excel • Office Scripts</span>
             </div>
           </div>
 
@@ -179,24 +251,24 @@
             <div class="profile-panel featured-project-panel">
               <p class="panel-label">Featured Project</p>
 
-              <h4>Financial Analysis Dashboard</h4>
+              <h4>Financial Invoice Automation</h4>
 
               <p>
-                A Power BI report that turns income, deductions, credits,
-                estimated tax, refunds, and tax outcomes into clear financial
-                insights.
+                An automated monthly invoicing solution that transforms
+                operational data into standardized customer invoices across
+                multiple projects and billing structures.
               </p>
 
               <ul class="project-tags">
                 <li>Power BI</li>
+                <li>Power Automate</li>
                 <li>Excel</li>
-                <li>Power Query</li>
-                <li>DAX</li>
-                <li>Financial Analysis</li>
+                <li>Office Scripts</li>
+                <li>Financial Automation</li>
               </ul>
 
               <a
-                href="accounting-tax-dashboard.html"
+                href="#invoice-automation"
                 style="
                   display: inline-block;
                   margin-top: 16px;
@@ -205,7 +277,7 @@
                   font-weight: 800;
                 "
               >
-                View case study →
+                View project ↓
               </a>
             </div>
 
@@ -215,25 +287,23 @@
               <div class="strength-list">
                 <div class="strength-item">
                   <strong>Data & BI</strong>
-                  <span>Clear dashboards and insight-driven reporting</span>
+                  <span>Clear dashboards and decision-ready reporting</span>
                 </div>
 
                 <div class="strength-item">
-                  <strong>Business Thinking</strong>
-                  <span>Connecting technical work to real business needs</span>
+                  <strong>Automation</strong>
+                  <span>Turning manual processes into scalable workflows</span>
                 </div>
 
                 <div class="strength-item">
-                  <strong>Accounting Knowledge</strong>
-                  <span
-                    >Financial context for analysis and decision-making</span
-                  >
+                  <strong>Business & Finance</strong>
+                  <span>Connecting technology to financial needs</span>
                 </div>
 
                 <div class="strength-item">
                   <strong>Communication</strong>
                   <span
-                    >Turning information into something people understand</span
+                    >Translating business needs into technical solutions</span
                   >
                 </div>
               </div>
@@ -245,18 +315,256 @@
 
     <!-- MAIN CONTENT -->
     <main>
+      <!-- EXPERIENCE -->
+      <section class="section" id="experience">
+        <p class="section-label">Experience</p>
+        <h2>Building solutions in real business environments.</h2>
+
+        <div class="experience-grid">
+          <!-- CENCORE -->
+          <article class="experience-card current">
+            <p class="experience-company">CenCore</p>
+
+            <h3>Financial Data Specialist</h3>
+
+            <p class="experience-date">
+              August 2026 – Present • Springville, Utah
+            </p>
+
+            <ul>
+              <li>
+                Design automated financial workflows using Power BI, Power
+                Automate, Excel, and Office Scripts to reduce manual accounting
+                processes and improve reporting efficiency.
+              </li>
+
+              <li>
+                Developed a monthly invoicing solution that transforms
+                operational data into standardized customer invoices across
+                multiple projects and billing structures.
+              </li>
+
+              <li>
+                Partner with Finance and Accounting stakeholders to gather
+                requirements and translate complex billing and reporting needs
+                into scalable technical solutions.
+              </li>
+            </ul>
+          </article>
+
+          <!-- UVU -->
+          <article class="experience-card">
+            <p class="experience-company">
+              Digital Experience & Enablement • Utah Valley University
+            </p>
+
+            <h3>Business Intelligence Analyst Intern</h3>
+
+            <p class="experience-date">
+              January 2026 – August 2026 • Orem, Utah
+            </p>
+
+            <ul>
+              <li>
+                Developed Power BI dashboards, reports, and visualizations to
+                support operational analysis and data-driven decision making.
+              </li>
+
+              <li>
+                Collected, cleaned, modeled, and analyzed data from multiple
+                sources to identify trends and monitor KPIs.
+              </li>
+
+              <li>
+                Worked with university stakeholders to translate business
+                questions into effective analytical solutions.
+              </li>
+            </ul>
+          </article>
+
+          <!-- PROOFPOINT -->
+          <article class="experience-card">
+            <p class="experience-company">Proofpoint</p>
+
+            <h3>IT Intern</h3>
+
+            <p class="experience-date">
+              June 2024 – December 2025 • Draper, Utah
+            </p>
+
+            <ul>
+              <li>
+                Developed Power BI dashboards and analytics projects to improve
+                visibility into operational data.
+              </li>
+
+              <li>
+                Contributed to an internal AI initiative by developing AI agents
+                and helping departments identify practical ways to integrate AI
+                into their workflows.
+              </li>
+
+              <li>
+                Provided technical support across enterprise systems while
+                communicating solutions to technical and nontechnical users.
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
       <!-- FEATURED PROJECTS -->
       <section class="section" id="projects">
         <p class="section-label">Featured Projects</p>
-        <h2>Projects that solve real business problems.</h2>
+        <h2>Solutions built around real business problems.</h2>
 
         <div class="project-grid">
-          <!-- PROJECT 1: Campus Resource Utilization -->
+          <!-- PROJECT 1: FINANCIAL INVOICE AUTOMATION -->
+          <article class="project-card" id="invoice-automation">
+            <div class="project-image financial">
+              <div class="project-image-overlay">
+                <span class="project-image-tag">
+                  Professional Project • Financial Automation
+                </span>
+
+                <h4>Financial Invoice Automation</h4>
+
+                <p>
+                  Workflow Automation • Financial Data • Process Improvement
+                </p>
+              </div>
+            </div>
+
+            <div class="project-content">
+              <div class="project-icon green">
+                <i class="fa-solid fa-gears"></i>
+              </div>
+
+              <span class="project-status">
+                Production Solution • CenCore
+              </span>
+
+              <h3>Monthly Financial Invoice Automation</h3>
+
+              <p>
+                Designed an automated workflow that transforms operational data
+                into standardized monthly customer invoices across multiple
+                projects and billing structures. The solution combines business
+                intelligence, workflow automation, financial logic, and
+                spreadsheet automation to reduce repetitive manual work and
+                improve consistency.
+              </p>
+
+              <p class="tools">
+                <strong>Tools & Skills:</strong> Power BI, DAX, Power Automate,
+                Excel, Office Scripts, SharePoint, Financial Data, Process
+                Automation
+              </p>
+
+              <p class="tools">
+                <strong>Business Focus:</strong> Requirements Gathering,
+                Financial Workflows, Process Improvement, Scalable Automation
+              </p>
+            </div>
+          </article>
+
+          <!-- PROJECT 2: FINANCIAL ANALYSIS -->
+          <article class="project-card">
+            <div class="project-image financial">
+              <div class="project-image-overlay">
+                <span class="project-image-tag">
+                  Completed • Power BI Project
+                </span>
+
+                <h4>Financial Analysis Dashboard</h4>
+
+                <p>
+                  Executive Overview • Tax Profile Detail • Financial Insights
+                </p>
+              </div>
+            </div>
+
+            <div class="project-content">
+              <div class="project-icon purple">
+                <i class="fa-solid fa-calculator"></i>
+              </div>
+
+              <span class="project-status"> Completed • Power BI Report </span>
+
+              <h3>Financial Analysis Dashboard</h3>
+
+              <p>
+                A Power BI dashboard that analyzes income, deductions, credits,
+                taxable income, refunds, and estimated tax outcomes through
+                executive, client-detail, and trend-analysis views.
+              </p>
+
+              <p class="tools">
+                <strong>Tools & Skills:</strong> Power BI, Excel, Power Query,
+                DAX, Data Modeling, Financial Analysis
+              </p>
+
+              <a href="accounting-tax-dashboard.html"> View Case Study → </a>
+            </div>
+          </article>
+
+          <!-- PROJECT 3: IT SERVICE DESK -->
+          <article class="project-card">
+            <div class="project-image inventory">
+              <div class="project-image-overlay">
+                <span class="project-image-tag">
+                  Completed • Tableau Project
+                </span>
+
+                <h4>IT Service Desk Performance</h4>
+
+                <p>
+                  Executive Overview • Root Cause • SLA & Technician Performance
+                </p>
+              </div>
+            </div>
+
+            <div class="project-content">
+              <div class="project-icon blue">
+                <i class="fa-solid fa-headset"></i>
+              </div>
+
+              <span class="project-status">
+                Completed • Tableau Dashboard
+              </span>
+
+              <h3>IT Service Desk Performance & SLA Dashboard</h3>
+
+              <p>
+                An interactive Tableau dashboard analyzing 100,000 simulated IT
+                service desk tickets to evaluate ticket volume, issue patterns,
+                response and resolution performance, and technician workload.
+              </p>
+
+              <p class="tools">
+                <strong>Tools & Skills:</strong> Tableau Public, Calculated
+                Fields, SLA Analysis, IT Operations Analytics, Dashboard Design
+              </p>
+
+              <a href="it-service-desk-dashboard.html"> View Case Study → </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ADDITIONAL PROJECT -->
+      <section class="section">
+        <p class="section-label">Additional Work</p>
+        <h2>Business analysis beyond dashboards.</h2>
+
+        <div class="project-grid">
           <article class="project-card">
             <div class="project-image campus">
               <div class="project-image-overlay">
-                <span class="project-image-tag">Utah Valley University</span>
+                <span class="project-image-tag"> Utah Valley University </span>
+
                 <h4>Campus Resource Utilization</h4>
+
                 <p>Student Affairs • Team Project • Strategy Analysis</p>
               </div>
             </div>
@@ -267,22 +575,22 @@
               </div>
 
               <span class="project-status">
-                Team Streategy Project • Proposed DAshboard Initiative
+                Team Strategy Project • Proposed Dashboard Initiative
               </span>
 
               <h3>Campus Resource Utilization Dashboard</h3>
 
               <p>
-                Ongoing strategy analysis for a proposed UVU dashboard that
-                would help Student Affairs leadership understand service usage,
-                workload, capacity, staffing needs, and student demand trends
-                across student-facing resources.
+                Strategy analysis for a proposed UVU dashboard designed to help
+                Student Affairs leadership understand service usage, workload,
+                capacity, staffing needs, and student demand trends across
+                student-facing resources.
               </p>
 
               <p class="tools">
                 <strong>Current Deliverable:</strong> Strategy analysis,
                 current/future state, change strategy, risks, and
-                recommendation.
+                recommendations.
               </p>
 
               <p class="tools">
@@ -295,138 +603,77 @@
               </a>
             </div>
           </article>
-
-          <!-- PROJECT 2: Financial Analysis Dashboard -->
-          <article class="project-card">
-            <div class="project-image financial">
-              <div class="project-image-overlay">
-                <span class="project-image-tag"
-                  >Completed · Power BI Project</span
-                >
-                <h4>Financial Analysis Dashboard</h4>
-                <p>Executive Overview • Tax Profile Detail • Tax Insights</p>
-              </div>
-            </div>
-
-            <div class="project-content">
-              <div class="project-icon purple">
-                <i class="fa-solid fa-calculator"></i>
-              </div>
-
-              <span class="project-status"> Completed · Power BI Report </span>
-
-              <h3>Financial Analysis Dashboard</h3>
-
-              <p>
-                A Power BI dashboard that analyzes income, deductions, credits,
-                taxable income, refunds, and estimated tax outcomes through
-                executive, client-details, and ternd-analysis views.
-              </p>
-
-              <p class="tools">
-                <strong>Tools & Skills:</strong> Power BI, Excel, Power Query,
-                DAX, Data Modeling, Financial Analysis
-              </p>
-
-              <a href="accounting-tax-dashboard.html">View Case Study →</a>
-            </div>
-          </article>
-          <!-- PROJECT 3: IT Service Desk Performance -->
-          <article class="project-card">
-            <div class="project-image inventory">
-              <div class="project-image-overlay">
-                <span class="project-image-tag"
-                  >Completed · Tableau Project</span
-                >
-                <h4>IT Service Desk Performance</h4>
-                <p>
-                  Executive Overview • Root Cause • SLA & Technician Performance
-                </p>
-              </div>
-            </div>
-
-            <div class="project-content">
-              <div class="project-icon blue">
-                <i class="fa-solid fa-headset"></i>
-              </div>
-
-              <span class="project-status">Completed · Tableau Dashboard</span>
-
-              <h3>IT Service Desk Performance &amp; SLA Dashboard</h3>
-
-              <p>
-                An interactive Tableau dashboard analyzing 100,000 simulated IT
-                service desk tickets to evaluate ticket volume, issue patterns,
-                response and resolution performance, and technician workload.
-              </p>
-
-              <p class="tools">
-                <strong>Tools &amp; Skills:</strong> Tableau Public, Calculated
-                Fields, SLA Analysis, IT Operations Analytics, Dashboard Design
-              </p>
-
-              <a href="it-service-desk-dashboard.html">View Case Study →</a>
-            </div>
-          </article>
         </div>
       </section>
 
       <!-- SKILLS -->
       <section class="section" id="skills">
         <p class="section-label">Skills & Tools</p>
+
         <h2>Technical skills with business context.</h2>
 
         <div class="skills-grid">
+          <!-- BUSINESS INTELLIGENCE -->
           <div class="skill-card">
             <i class="fa-solid fa-chart-column"></i>
-            <h3>Data & BI</h3>
+
+            <h3>Business Intelligence</h3>
 
             <ul>
               <li>Power BI</li>
-              <li>SQL</li>
-              <li>Excel</li>
-              <li>Data Visualization</li>
+              <li>Tableau</li>
+              <li>DAX</li>
+              <li>Power Query</li>
               <li>Dashboard Design</li>
+              <li>KPI Reporting</li>
             </ul>
           </div>
 
+          <!-- DATA -->
+          <div class="skill-card">
+            <i class="fa-solid fa-database"></i>
+
+            <h3>Data & Development</h3>
+
+            <ul>
+              <li>SQL</li>
+              <li>Data Modeling</li>
+              <li>Excel</li>
+              <li>Relational Databases</li>
+              <li>C#</li>
+              <li>Data Analysis</li>
+            </ul>
+          </div>
+
+          <!-- AUTOMATION -->
+          <div class="skill-card">
+            <i class="fa-solid fa-gears"></i>
+
+            <h3>Automation & AI</h3>
+
+            <ul>
+              <li>Power Automate</li>
+              <li>Office Scripts</li>
+              <li>SharePoint</li>
+              <li>Workflow Automation</li>
+              <li>AI Agents</li>
+              <li>Process Improvement</li>
+            </ul>
+          </div>
+
+          <!-- BUSINESS -->
           <div class="skill-card">
             <i class="fa-solid fa-briefcase"></i>
-            <h3>Business & Accounting</h3>
+
+            <h3>Business & Finance</h3>
 
             <ul>
               <li>Financial Analysis</li>
               <li>Accounting Concepts</li>
-              <li>Tax Concepts</li>
-              <li>Process Improvement</li>
+              <li>Requirements Gathering</li>
               <li>Business Analysis</li>
-            </ul>
-          </div>
-
-          <div class="skill-card">
-            <i class="fa-solid fa-database"></i>
-            <h3>Tools & Technologies</h3>
-
-            <ul>
-              <li>SQL Queries</li>
-              <li>Joins & CTEs</li>
-              <li>Power Query</li>
-              <li>DAX Measures</li>
-              <li>KPI Calculations</li>
-              <li>Data Modeling</li>
-            </ul>
-          </div>
-
-          <div class="skill-card">
-            <i class="fa-solid fa-people-group"></i>
-            <h3>Soft Skills</h3>
-
-            <ul>
-              <li>Communication</li>
-              <li>User Support</li>
+              <li>Stakeholder Communication</li>
               <li>Training & Documentation</li>
-              <li>Problem Solving</li>
-              <li>Team Collaboration</li>
             </ul>
           </div>
         </div>
@@ -435,11 +682,14 @@
       <!-- HOW I WORK -->
       <section class="section process-section">
         <p class="section-label">How I Work</p>
-        <h2>My process for turning data into meaningful insights.</h2>
+
+        <h2>From business problem to working solution.</h2>
 
         <div class="process-grid">
+          <!-- STEP 1 -->
           <div class="process-step">
             <div class="step-number">1</div>
+
             <div class="process-icon" aria-hidden="true">
               <svg
                 viewBox="0 0 64 64"
@@ -453,12 +703,14 @@
                   stroke="currentColor"
                   stroke-width="4"
                 />
+
                 <path
                   d="M39 39L53 53"
                   stroke="currentColor"
                   stroke-width="4"
                   stroke-linecap="round"
                 />
+
                 <path
                   d="M22 28L26 32L34 23"
                   stroke="currentColor"
@@ -468,12 +720,19 @@
                 />
               </svg>
             </div>
+
             <h3>Understand</h3>
-            <p>I learn the business problem and define the key questions.</p>
+
+            <p>
+              I learn the business problem, talk with stakeholders, and define
+              what success looks like.
+            </p>
           </div>
 
+          <!-- STEP 2 -->
           <div class="process-step">
             <div class="step-number">2</div>
+
             <div class="process-icon" aria-hidden="true">
               <svg
                 viewBox="0 0 64 64"
@@ -488,16 +747,19 @@
                   stroke="currentColor"
                   stroke-width="4"
                 />
+
                 <path
                   d="M14 15V33C14 37.4 22.1 41 32 41C41.9 41 50 37.4 50 33V15"
                   stroke="currentColor"
                   stroke-width="4"
                 />
+
                 <path
                   d="M14 33V49C14 53.4 22.1 57 32 57C41.9 57 50 53.4 50 49V33"
                   stroke="currentColor"
                   stroke-width="4"
                 />
+
                 <path
                   d="M14 15C14 19.4 22.1 23 32 23C41.9 23 50 19.4 50 15"
                   stroke="currentColor"
@@ -505,12 +767,19 @@
                 />
               </svg>
             </div>
+
             <h3>Prepare</h3>
-            <p>I clean, organize, and prepare data for analysis.</p>
+
+            <p>
+              I organize, clean, model, and validate the data or processes
+              needed to build the solution.
+            </p>
           </div>
 
+          <!-- STEP 3 -->
           <div class="process-step">
             <div class="step-number">3</div>
+
             <div class="process-icon" aria-hidden="true">
               <svg
                 viewBox="0 0 64 64"
@@ -523,6 +792,7 @@
                   stroke-width="4"
                   stroke-linecap="round"
                 />
+
                 <rect
                   x="16"
                   y="31"
@@ -531,6 +801,7 @@
                   rx="2"
                   fill="currentColor"
                 />
+
                 <rect
                   x="29"
                   y="21"
@@ -540,6 +811,7 @@
                   fill="currentColor"
                   opacity=".75"
                 />
+
                 <rect
                   x="42"
                   y="12"
@@ -549,6 +821,7 @@
                   fill="currentColor"
                   opacity=".5"
                 />
+
                 <path
                   d="M17 25L30 16L43 20L54 8"
                   stroke="currentColor"
@@ -558,12 +831,19 @@
                 />
               </svg>
             </div>
-            <h3>Analyze</h3>
-            <p>I explore the data to find patterns, trends, and insights.</p>
+
+            <h3>Build</h3>
+
+            <p>
+              I develop the dashboard, automation, data model, or workflow that
+              addresses the business need.
+            </p>
           </div>
 
+          <!-- STEP 4 -->
           <div class="process-step">
             <div class="step-number">4</div>
+
             <div class="process-icon" aria-hidden="true">
               <svg
                 viewBox="0 0 64 64"
@@ -579,13 +859,16 @@
                   stroke="currentColor"
                   stroke-width="4"
                 />
+
                 <path
                   d="M24 53H40"
                   stroke="currentColor"
                   stroke-width="4"
                   stroke-linecap="round"
                 />
+
                 <path d="M32 43V53" stroke="currentColor" stroke-width="4" />
+
                 <path
                   d="M18 34L26 26L33 31L45 19"
                   stroke="currentColor"
@@ -593,20 +876,26 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 />
+
                 <circle cx="18" cy="34" r="2.5" fill="currentColor" />
                 <circle cx="26" cy="26" r="2.5" fill="currentColor" />
                 <circle cx="33" cy="31" r="2.5" fill="currentColor" />
                 <circle cx="45" cy="19" r="2.5" fill="currentColor" />
               </svg>
             </div>
-            <h3>Visualize</h3>
+
+            <h3>Validate</h3>
+
             <p>
-              I create clear dashboards that make data easier to understand.
+              I test the solution, validate the results, and refine it based on
+              stakeholder feedback.
             </p>
           </div>
 
+          <!-- STEP 5 -->
           <div class="process-step">
             <div class="step-number">5</div>
+
             <div class="process-icon" aria-hidden="true">
               <svg
                 viewBox="0 0 64 64"
@@ -619,30 +908,35 @@
                   stroke-width="4"
                   stroke-linejoin="round"
                 />
+
                 <path
                   d="M26 53H38"
                   stroke="currentColor"
                   stroke-width="4"
                   stroke-linecap="round"
                 />
+
                 <path
                   d="M28 58H36"
                   stroke="currentColor"
                   stroke-width="4"
                   stroke-linecap="round"
                 />
+
                 <path
                   d="M32 2V5"
                   stroke="currentColor"
                   stroke-width="4"
                   stroke-linecap="round"
                 />
+
                 <path
                   d="M8 26H11"
                   stroke="currentColor"
                   stroke-width="4"
                   stroke-linecap="round"
                 />
+
                 <path
                   d="M53 26H56"
                   stroke="currentColor"
@@ -651,8 +945,13 @@
                 />
               </svg>
             </div>
+
             <h3>Deliver</h3>
-            <p>I communicate insights that support better decision-making.</p>
+
+            <p>
+              I communicate the solution clearly, document the process, and help
+              users get value from what was built.
+            </p>
           </div>
         </div>
       </section>
@@ -665,41 +964,54 @@
 
         <div class="about-text">
           <p class="section-label">About Me</p>
-          <h2>Data, business, and people.</h2>
+
+          <h2>Where data, business, and people connect.</h2>
 
           <p>
-            I’m an Information Systems & Technology student at Utah Valley
-            University with an emphasis in Business Intelligence and a minor in
-            Accounting. I enjoy using data to make complicated information
-            easier to understand and help people make better decisions.
+            I’m a Financial Data Specialist and Information Systems & Technology
+            student at Utah Valley University, specializing in Business
+            Intelligence with a minor in Accounting. I enjoy solving problems
+            where data, technology, and business processes come together.
           </p>
 
           <p>
-            My background connects technical skills, business thinking, and
-            communication. I’m especially interested in dashboards, financial
-            data, process improvement, and analytics that create real impact.
+            My experience spans business intelligence, financial automation,
+            enterprise IT, and AI. I’ve built dashboards, analyzed operational
+            data, automated financial workflows, and worked directly with
+            stakeholders to turn business needs into practical technical
+            solutions.
+          </p>
+
+          <p>
+            I’m especially interested in business intelligence, data engineering
+            and modeling, financial analytics, automation, and emerging AI
+            applications that help organizations make better decisions and work
+            more efficiently.
           </p>
         </div>
 
         <div class="about-details">
           <div>
             <i class="fa-solid fa-graduation-cap"></i>
+
             <p>
               <strong>Utah Valley University</strong><br />
-              Information Systems & Technology
+              B.S. Information Systems & Technology
             </p>
           </div>
 
           <div>
-            <i class="fa-solid fa-location-dot"></i>
+            <i class="fa-solid fa-chart-line"></i>
+
             <p>
-              <strong>Orem, Utah</strong><br />
-              Business Intelligence Emphasis
+              <strong>Business Intelligence</strong><br />
+              BI Emphasis • Accounting Minor
             </p>
           </div>
 
           <div>
             <i class="fa-solid fa-heart"></i>
+
             <p>
               <strong>Outside of work</strong><br />
               Volleyball, golf, learning, and family
@@ -714,7 +1026,11 @@
       <div class="footer-content">
         <div>
           <p class="section-label">Let’s Connect</p>
-          <h2>I’m open to new opportunities and collaborations.</h2>
+
+          <h2>
+            Interested in data, automation, or solving a business problem? Let’s
+            talk.
+          </h2>
 
           <a href="mailto:marthijensen@gmail.com" class="primary-button">
             Get in Touch
@@ -723,7 +1039,8 @@
 
         <div class="footer-links">
           <a href="mailto:marthijensen@gmail.com">
-            <i class="fa-solid fa-envelope"></i> marthijensen@gmail.com
+            <i class="fa-solid fa-envelope"></i>
+            marthijensen@gmail.com
           </a>
 
           <a
@@ -731,15 +1048,17 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i class="fa-brands fa-linkedin"></i> linkedin.com/in/marthijensen
+            <i class="fa-brands fa-linkedin"></i>
+            linkedin.com/in/marthijensen
           </a>
 
           <a
-            href="https://marthijensen.github.io/index.html#home"
+            href="https://github.com/marthijensen"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i class="fa-brands fa-github"></i> github.com/marthijensen
+            <i class="fa-brands fa-github"></i>
+            github.com/marthijensen
           </a>
         </div>
 
